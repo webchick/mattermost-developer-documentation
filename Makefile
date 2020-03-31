@@ -31,4 +31,4 @@ endif
 
 .PHONY: run
 run:
-	hugo server --buildDrafts --disableFastRender -F -s site
+	hugo server --buildDrafts --buildFuture -s site
