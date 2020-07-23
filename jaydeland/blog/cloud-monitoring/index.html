@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Monitoring a Multi-Cluster Environment Using Prometheus Federation and Grafana</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../blog/cloud-monitoring/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/tabs.css">
+<link rel="stylesheet" href="../../css/bar.css">
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/code.css">
+<link rel="stylesheet" href="../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/tabs.js"></script>
+<script src="../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+</head>
+
+<body class="blog-single">
+    <header>
+    <a href="../../"><img src="../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../">Home</a></li>
+        
+            
+            
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 doc-content">
+                <div class="well well-sm">
+                    <div class="blog-item__header">
+                        <div class="blog-item__title">Monitoring a Multi-Cluster Environment Using Prometheus Federation and Grafana<br> <small></small></div>
+                        <div class="blog-item__info">
+                            December 18, 2019
+                            <small class="blog-item__count">828 words</small>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>Monitoring the state of your clusters is an effective way to discover bottlenecks in your multi-cluster production environment. It is one of the key challenges that development teams are facing and factors such as the team experience as well as the number and distribution of the applications can make things even more complex.</p>
+<p>Better monitoring can help identify single points of failure. Being able to get information about things like the number of applications running on each node or the CPU and memory performance can help to get closer to zero downtime deployments.</p>
+<p>At Mattermost we run multiple Kubernetes clusters in AWS, deployed with our own Mattermost provisioning tool. The clusters are deployed across multiple AWS VPCs and this cluster distribution led to some challenges which are highlighted below:</p>
+<ul>
+<li>Choosing the correct tooling for monitoring</li>
+<li>Potential data transfer costs</li>
+<li>DNS resolution with dynamically created VPCs</li>
+</ul>
+<p>The aim of this blog is to go through each one of the challenges we faced and outline the path we followed to reach the end solution.</p>
+<h4 id="monitoring-tooling">Monitoring Tooling&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#monitoring-tooling"></i></a> </h4>
+<p>For the monitoring tooling, we selected a combination of the open source Prometheus and Grafana tools. Prometheus acts as the storage and query engine while Grafana acts as the interface for visualization of the monitoring data via dashboards and panels.</p>
+<p>Grafana offers an easy to read interface that can be easily deployed and managed in a Kubernetes cluster. By supporting multiple datasources (Prometheus, MySQL, AWS CloudWatch, etc.), it can be used to monitor the whole infrastructure.</p>
+<p>Prometheus collects metrics by scraping data from the clusters and we selected it for its simplicity and support, as well as its Prometheus Federation service, which can be used to scale to hundreds of clusters. <a href="https://prometheus.io/docs/prometheus/latest/federation/">Prometheus federation</a> is a Prometheus server that can scrape data from other Prometheus servers. It supports hierarchical federation, which in our case resembles a tree.</p>
+<p>At Mattermost, a default version of the Prometheus server is installed in each one of our clusters and a Prometheus federation server is deployed together with Grafana in a central monitoring cluster. Prometheus federation scrapes data from all the other Prometheus servers that run in our clusters. For future expansion, a central Prometheus federation can be used to scrape data from multiple Prometheus federation servers that scrape data from groups of tens of clusters.</p>
+<figure>
+    <img src="../../blog/2019-12-18-cloud-monitoring/prometheus_federate.png"
+         alt="Prometheus Federate"/> 
+</figure>
+
+<p>Both of the tools are deployed in a central command and control cluster using <a href="https://helm.sh/">Helm</a> and <a href="https://www.terraform.io/">Terraform</a>. More information on the Terraform deployment code can be found <a href="https://github.com/mattermost/mattermost-cloud-monitoring/tree/master/terraform/aws/modules/cluster-post-installation">here</a>. For testing purposes the default version of Prometheus server can be installed by running:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm install stable/prometheus
+</code></pre></div><p>In order to install the Prometheus federation server, changes are required in the Helm <code>values.yaml</code> file and especially in the <code>prometheus.yml</code> section. The <code>scrape_configs</code> needs to be replaced by a federate job name. For more information, take a look at the code snippet below.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#069;font-weight:bold">prometheus.yml</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">rule_files</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- /etc/config/rules<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- /etc/config/alerts<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#069;font-weight:bold">scrape_configs</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- <span style="color:#069;font-weight:bold">job_name</span>:<span style="color:#bbb"> </span><span style="color:#c30">&#39;federate&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">scrape_interval</span>:<span style="color:#bbb"> </span>15s<span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">honor_labels</span>:<span style="color:#bbb"> </span><span style="color:#069;font-weight:bold">true</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">metrics_path</span>:<span style="color:#bbb"> </span><span style="color:#c30">&#39;/federate&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">params</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#069;font-weight:bold">&#39;match[]&#39;</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">            </span>- <span style="color:#c30">&#39;{job=&#34;prometheus&#34;}&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb">            </span>- <span style="color:#c30">&#39;{__name__=~&#34;job:.*&#34;}&#39;</span><span style="color:#bbb">
+</span><span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">static_configs</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span>- <span style="color:#069;font-weight:bold">targets</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">            </span>- <span style="color:#c30">&#39;prometheus-server:80&#39;</span><span style="color:#bbb">
+</span></code></pre></div><p>In this case we assume that the Prometheus federate config will be used only for data scraping from other Prometheus targets. However, another scrape config can be added in order to use the same Prometheus server for local cluster data scraping. We decided to not move forward with local data scraping as we would like to keep the Prometheus federation server dedicated to only one task and use another server for that.</p>
+<p>The next step in the setup is to specify the Prometheus server targets that the Prometheus federate server will use to scrape the data. For the targets, each server is registered with Route 53 and the static config looks like this:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#069;font-weight:bold">static_configs</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- <span style="color:#069;font-weight:bold">targets</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>- prometheus1.example.com.<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">labels</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#069;font-weight:bold">clusterID</span>:<span style="color:#bbb"> </span>cluster1<span style="color:#bbb">
+</span><span style="color:#bbb">      </span>- <span style="color:#069;font-weight:bold">targets</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">        </span>- prometheus2.example.com.<span style="color:#bbb">
+</span><span style="color:#bbb">        </span><span style="color:#069;font-weight:bold">labels</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">          </span><span style="color:#069;font-weight:bold">clusterID</span>:<span style="color:#bbb"> </span>cluster2<span style="color:#bbb">
+</span></code></pre></div><p>The use of labels makes the identification of the clusters easier in the Grafana dashboards and panels.</p>
+<p>Having the ability to add and remove targets in an automated way is really important when a new Prometheus server is registered or deregistered with Route 53. This is why we developed a <a href="https://github.com/mattermost/mattermost-cloud-monitoring/tree/master/prometheus-dns-registration-service">Lambda function</a> that handles the updates of the Prometheus server configmap when a new Route 53 record is created/deleted.</p>
+<h4 id="data-transfer-cost-and-dns-resolution">Data Transfer Cost and DNS Resolution&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#data-transfer-cost-and-dns-resolution"></i></a> </h4>
+<p>We were able to solve the final two challenges, minimizing data transfer costs and DNS resolution, together.
+A major factor of monitoring is that data transferring cost can be significant and in our case using AWS internal traffic reduced cost and improves security. Private Load Balancers, as well as private Hosted Zones and Transit Gateways are used to keep all traffic internal and support DNS resolution and cluster communication.</p>
+<p>One of the obstacles we have faced by using private hosted zones had to do with the DNS resolution of Prometheus servers running in clusters in separate VPCs. Due to the traffic being internal, Bind9 servers are used for the resolution of the private hosted zone records. In addition, custom AMIs with preconfigured DNS setup are created and used for the cluster deployment.</p>
+<p>With this setup all services can communicate using custom internal DNS records and traffic cost was reduced to a couple of dollars per month.</p>
+
+
+                    <hr>
+                    
+                    Written by
+                    
+                    Stylianos Rigas
+-
+<a href="https://community.mattermost.com/core/messages/@stylianos.rigas" target="_blank">
+    @stylianos.rigas
+</a>
+on
+<a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676" target="_blank">
+    community.mattermost.com
+</a>
+and
+<a href="https://github.com/stylianosrigas" target="_blank">
+    @stylianosrigas
+</a>
+on GitHub
+
+                    
+                    
+                    <br />
+                    <br />
+                    Join us on <a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676"
+                        target="_blank">community.mattermost.com</a>!
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 doc-content tags-sidebar">
+                <div class="well well-sm">
+                    
+                    
+
+
+                    <h6>Other Posts</h6>
+                    <ul class="list-unstyled">
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/pritunl/">From OpenVPN to Pritunl VPN: The transition</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/open-tracing/">OpenTracing for Go Projects</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/hands-on-iouring-go/">Getting Hands-on with io_uring using Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/advanced-git-tbilisi-free-university/">Advanced Git with the Free University of Tbilisi</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/all-about-emojis/">All About Emojis</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/maintaining-consistency-in-codebases-with-go-vet/">Maintaining Consistency in Codebases with Go vet</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/instrumenting-go-code-via-ast-2/">Instrumenting Go code via AST, Part 2</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/layered-store-and-struct-embedding/">Layered Store and Struct Embedding in Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/incorporating-golangci-lint/">Incorporating GolangCI-Lint at Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/on-hermes-and-mattermost/">On Hermes and Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/onboarding-with-mattermost/">Onboarding with Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/kubecon-na-2019/">KubeCon NA 2019</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/localizing-matterpoll/">Localizing Matterpoll</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Hermes @ Chain React</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../blog/chain-react-2019-higlights-hermes/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/tabs.css">
+<link rel="stylesheet" href="../../css/bar.css">
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/code.css">
+<link rel="stylesheet" href="../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/tabs.js"></script>
+<script src="../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+</head>
+
+<body class="blog-single">
+    <header>
+    <a href="../../"><img src="../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../">Home</a></li>
+        
+            
+            
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 doc-content">
+                <div class="well well-sm">
+                    <div class="blog-item__header">
+                        <div class="blog-item__title">Hermes @ Chain React<br> <small></small></div>
+                        <div class="blog-item__info">
+                            July 18, 2019
+                            <small class="blog-item__count">1147 words</small>
+                        </div>
+                    </div>
+                    <hr>
+                    <pre><code>- Yes, yes...
+- for real?
+- Yes I come all the way from Taiwan... and you?
+- Oh I'm from here.. and what about you
+- me? hmm I flew 18 hours to get here (me)
+</code></pre><p>In short, the above is how the whole thing started. It is really interesting how people from all over the
+globe attended the event. It was a fun learning experience and even the unexpected was waiting on us.
+The first day began and all those strange faces were getting a bit more familiar as
+everyone started to talk to each other, and most of the time the barrier came down by
+asking &ldquo;Where are you from?&rdquo;&hellip; or &ldquo;Oh&hellip; that&rsquo;s cool&rdquo;. Slowly everyone was then talking
+React Native here, RN there, library over there, how did you solve this problem or the other, and so on.</p>
+<p>Speaking about libraries, we recently decided to change from using Redux and redux-persist
+to <a href="https://realm.io/docs/javascript/latest/#getting-started">Realm</a>.
+By looking at Realm we found this amazing library that will let us keep the same redux pattern but
+using Realm under the hood; the library is
+called <a href="https://github.com/lolatravel/realm-react-redux">realm-react-redux</a> but it was
+not being kept up to date. Basically the maintainers moved on to different projects and
+they have not heard of anyone using it. Boom! First surprise. We met one of the library
+creators and after explaining our use case they are now more than willing to merge our PRs to
+update the library as well as incorporate a few improvements.</p>
+<p>Great, after and hour or so, here we go, it&rsquo;s time for the conference to actually kick off.
+The MC was a very entertaining dude, and opened the way to our first speaker:</p>
+<h4 id="improving-react-native-performance-marc-horowitz">Improving React Native Performance (Marc Horowitz)&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#improving-react-native-performance-marc-horowitz"></i></a> </h4>
+<p>Right from the start the Facebook React Native core team made a very BIG announcement:
+this was all about improving performance on cold start (app start),
+taking into consideration three primary metrics:
+<code>TTI (Time to Interaction)</code>, <code>APK (application size)</code> and <code>Memory (as in utilization)</code>.</p>
+<p>So what does this mean?</p>
+<h1 id="-hermes-welcome">🎉 Hermes welcome!&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#-hermes-welcome"></i></a> </h1>
+<p>Hermes is a new JavaScript engine designed for mobile environments that is focused on
+startup performance. After this short explanation by Marc,
+I personally went nuts! Right there and without any knowledge of what was about to
+happen a video pops up in the screen.</p>
+<p><a href="https://youtu.be/EnefPsVRSn4"><img src="../../blog/2019-07-18-chain-react-2019/thumbnail.png" alt="Mattermost JSC vs Herms"></a>
+<em><span style="font-size: 12px">click on the image to open the YouTube video.</span></em></p>
+<p>BOOM BOOM POW! as you can see in the video above, the RN core team wanted to show the results on a
+real world app with complex interactions, layouts and functionality, and they chose Mattermost.
+The Mattermost app was shown as an example of what Hermes can achieve. In our app case just by
+switching from JSC to Hermes, cold start improved by about 50% on a Pixel XL (2016) phone.</p>
+<p>Here more detailed results:
+<img src="../../blog/2019-07-18-chain-react-2019/hermes-stats.jpg" alt="Mattermost mobile app"></p>
+<p>And a few more comparisons thanks to <a href="blog.nparashuram.com">Ram Narasimhan</a>:</p>
+<ul>
+<li>TTI Traces - <a href="https://nparashuram.github.io/mattermost-mobile/jsc/trace-jsc.html">JSC</a> vs <a href="https://nparashuram.github.io/mattermost-mobile/hermes/trace-hermes.html">Hermes</a></li>
+<li>Memory Usage - <a href="https://nparashuram.github.io/mattermost-mobile/jsc/mem-jsc.txt">JSC</a> vs <a href="https://nparashuram.github.io/mattermost-mobile/hermes/mem-hermes.txt">Hermes</a></li>
+<li>APK Size - <a href="https://nparashuram.github.io/mattermost-mobile/jsc/size-jsc.html">JSC</a> vs <a href="https://nparashuram.github.io/mattermost-mobile/hermes/size-hermes.html">Hermes</a></li>
+</ul>
+<p>Ok, lets dig a little deeper and see why Hermes improves cold start. When you build a mobile app with
+React Native, basically all your JS code is transpiled with babel to convert your ECMAScript 2015+
+code into a backwards compatible version of JavaScript in current and older environments, then the
+code is minified to reduce its bundle size and the bundle is saved within your app. When you run the
+app the JavaScript engine kicks in, parses the bundle and compiles it into bytecode and finally it
+gets executed. Hermes changes things a bit, your app is still transpiled with babel and then minified,
+but Hermes uses an ahead-of-time compiler, which runs as part of the mobile app build process.
+This also allows to spend more time optimizing the bytecode, and with this the bytecode is smaller in
+size and more efficient. Some of the optimizations that are performed include function deduplication
+and string table packing.</p>
+<p>Basically with Hermes the following is done during build time: transpile with babel, minify,
+parse and compile to bytecode and then on run time the app just executes,
+meaning that it starts faster as there are less actions to take when the app first loads.</p>
+<p>One thing that I&rsquo;m not really sure about is what is the impact that using Hermes will cause to CodePush
+or other OTA (Over the Air) updates. The reality is that we at Mattermost do not use OTA as of now.</p>
+<p>Conventional engine vs Hermes
+<img src="../../blog/2019-07-18-chain-react-2019/hermes-build.gif" alt="Hermes build and run time"></p>
+<h5 id="no-just-in-time-compiler-jit">No Just in Time compiler (JIT)&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#no-just-in-time-compiler-jit"></i></a> </h5>
+<p>Most widely used JavaScript engines like JSC use JIT to lazily compile interpreted code to machine code,
+but Hermes does not have a JIT compiler, meaning that it can underperform some benchmarks, especially
+those that depend on CPU performance. In reality those benchmarks in general are not representative of
+mobile application workloads, so we should be good with this. What we need to understand is that
+conventional engines that use JIT need to warm up when the application starts and that has an impact
+with TTI (Time to interaction). Also, let&rsquo;s not forget that JIT will also add to code size and memory
+consumption that will also have a negative impact in cold start. Basically there are some trade-offs
+by using Hermes instead of JSC or other conventional engines, but the interpreter performance should
+be good enough.</p>
+<h5 id="what-does-this-mean-during-development">What does this mean during development&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#what-does-this-mean-during-development"></i></a> </h5>
+<p>When developing your app, Hermes will not use ahead-of-time compilation, but instead it will generate the
+bytecode lazily on the device, allowing rapid interaction with Metro. Obviously this means that the
+lazy-compiled bytecode will not include all the optimizations of a production build. In theory you
+should expect a more performant app in production than in development.</p>
+<p>Another thing to consider is that Hermes focused on ES6 specifications and it should be kept up to
+date as new specifications emerge. However, one important thing is that because the goal was to keep the
+size small, some of the language features are not included such as proxies and local <code>eval()</code>.
+<a href="https://github.com/facebook/hermes/blob/master/doc/Features.md#excluded-from-support">Here is a complete list of unsupported features</a>.</p>
+<p>We do use <code>Reflect</code> in various places throughout our code base at Mattermost, and it is one of the
+unsupported features of JS. Thus, in our case we will need to either use a polyfill or make changes appropriately.</p>
+<h4 id="conclusion">Conclusion&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#conclusion"></i></a> </h4>
+<p>Hermes was a great surprise: we know we&rsquo;ve been doing a lot of work trying to improve cold start on
+Android, we implemented RAM Bundles (previously known as Unbundling), we use inline requires,
+we use lazy load of native modules with the new <code>TurboReactPackage</code>, and whatever other strategy we can think of.
+So we are definitely looking forward to add Hermes to our Android React Native app and probably contribute
+back to Hermes those features that we need in order to avoid the use of polyfills. And still looking forward to
+the release of Fabric and TurboModules 😁</p>
+
+
+                    <hr>
+                    
+                    Written by
+                    
+                    Elias Nahum
+-
+<a href="https://community.mattermost.com/core/messages/@elias" target="_blank">
+    @elias
+</a>
+on
+<a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676" target="_blank">
+    community.mattermost.com
+</a>
+and
+<a href="https://github.com/enahum" target="_blank">
+    @enahum
+</a>
+on GitHub
+
+                    
+                    
+                    <br />
+                    <br />
+                    Join us on <a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676"
+                        target="_blank">community.mattermost.com</a>!
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 doc-content tags-sidebar">
+                <div class="well well-sm">
+                    
+                    
+
+
+                    <h6>Other Posts</h6>
+                    <ul class="list-unstyled">
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/pritunl/">From OpenVPN to Pritunl VPN: The transition</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/open-tracing/">OpenTracing for Go Projects</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/hands-on-iouring-go/">Getting Hands-on with io_uring using Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/advanced-git-tbilisi-free-university/">Advanced Git with the Free University of Tbilisi</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/all-about-emojis/">All About Emojis</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/maintaining-consistency-in-codebases-with-go-vet/">Maintaining Consistency in Codebases with Go vet</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/instrumenting-go-code-via-ast-2/">Instrumenting Go code via AST, Part 2</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/layered-store-and-struct-embedding/">Layered Store and Struct Embedding in Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/incorporating-golangci-lint/">Incorporating GolangCI-Lint at Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/on-hermes-and-mattermost/">On Hermes and Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/onboarding-with-mattermost/">Onboarding with Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/kubecon-na-2019/">KubeCon NA 2019</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/cloud-monitoring/">Monitoring a Multi-Cluster Environment Using Prometheus Federation and Grafana</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/localizing-matterpoll/">Localizing Matterpoll</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

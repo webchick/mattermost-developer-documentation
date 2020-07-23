@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Maintaining Consistency in Codebases with Go vet</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="https://mattermost.com/blog/maintaining-consistency-in-codebases-with-go-vet/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/tabs.css">
+<link rel="stylesheet" href="../../css/bar.css">
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/code.css">
+<link rel="stylesheet" href="../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/tabs.js"></script>
+<script src="../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+</head>
+
+<body class="blog-single">
+    <header>
+    <a href="../../"><img src="../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../">Home</a></li>
+        
+            
+            
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 doc-content">
+                <div class="well well-sm">
+                    <div class="blog-item__header">
+                        <div class="blog-item__title">Maintaining Consistency in Codebases with Go vet<br> <small></small></div>
+                        <div class="blog-item__info">
+                            March 17, 2020
+                            <small class="blog-item__count">1175 words</small>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>Maintaining success in a large open-source project is one of the key objectives
+of Mattermost. We have hundreds of contributors and we want to create a project
+that could serve as a model in the Go community. Having said that, following
+idiomatic Go principles is the thing that we care most about while maintaining our
+code consistency. For this specific task, we utilized <code>go vet</code> and with this
+blog post, I would like to explain how we pushed the limits of this tool by
+extending it.</p>
+<p>The main restriction of <code>go vet</code> is that there are a limited number of absolute
+truths about what is right and what is wrong and so the <code>go vet</code> checks are very
+general.</p>
+<p>Although <code>go vet</code> has great use in common checks, having domain-specific or even
+company-specific checks is inevitable to maintain a project at our scale. In
+Mattermost we have a way of doing certain things like logging, test assertions,
+and adding license headers to the source files. We try our best to keep code
+consistent and work hard to avoid reintroducing old patterns in the
+code.</p>
+<p>I think the best way to explain it is with an example.</p>
+<p>Some time ago, we redesigned our logging implementation and it&rsquo;s a
+great example to showcase our work around maintaining consistency. While
+migrating to the new approach didn&rsquo;t happen with the snap of a finger, we
+observed that the old way of logging was making its way into new PRs. Also in
+such cases, the old pattern was one of the obvious approaches that you can
+follow to present data in the logs.</p>
+<p>Let&rsquo;s dive deeper into the topic, and I will try my best to explain how we extended the <code>go vet</code> tool by adding our own specific checks.</p>
+<p>A good starting point is the <a href="https://github.com/mattermost/mattermost-govet/blob/master/structuredLogging/structuredLogging.go">check</a>
+we added so that we could avoid any string building with <code>fmt.Sprintf</code> calls as
+part of the calls to our logging library. With that check implemented we were able
+to detect all the cases in the code where we were not doing structured logging
+and replace them with the properly structured logging approach. We then
+added that check to our CI pipeline to ensure that the pattern was not
+reintroduced accidentally by us or by any contributor.</p>
+<p>Another interesting example is our approach to improve the consistency of test
+assertions. We use the <a href="https://github.com/stretchr/testify">Testify</a> library
+to include more semantic assertions, but at the same time, we were using
+<code>t.Fatalf</code> calls in certain places. The <code>t.Fatalf</code> method of failing tests was
+less semantic because the test&rsquo;s error itself is not necessarily related to the
+assertion. We created a <a href="https://github.com/mattermost/mattermost-govet/blob/master/tFatal/tFatal.go">check to avoid the use of <code>t.Fatalf</code></a> in our tests.</p>
+<p>Once we had that, we discovered that we have some incorrectly defined
+assertions. For example, we were using <code>require.Equal(t, 5, len(x))</code> which is
+less semantic than <code>require.Len(t, x, 5)</code>. We created a <a href="https://github.com/mattermost/mattermost-govet/blob/master/equalLenAsserts/equalLenAsserts.go">check for semantic length assertions</a>,
+adding a suggestion in the error message to replace it with the
+correct assertion. We kept digging there, and we discovered that sometimes we
+were checking <code>require.Len(t, x, 0)</code> which can be more semantically written as
+<code>require.Empty(t, x)</code>, so we wrote the check for that, and included in the check
+the case for <code>require.Equal(t, 0, len(x))</code> suggesting in both cases to use
+<code>require.Empty(t, x)</code>.</p>
+<p>Other checks have been made for other purposes. For example, checking the
+<a href="https://github.com/mattermost/mattermost-govet/blob/master/license/license.go">consistency and existence of the license in the header of our files</a>, or
+checking for the <a href="https://github.com/mattermost/mattermost-govet/tree/master/inconsistentReceiverName">consistency in the receiver variable name of the methods for the same structure</a>.</p>
+<p>Extending <code>go vet</code> is a really easy task, you only need some knowledge about the
+Go AST because almost anything else is already handled by the <code>go vet</code> tool. As
+an example, let&rsquo;s implement a <code>go vet</code> check to find forbidden words in the
+strings of our code.</p>
+<p>The first thing that we need is an Analyzer. An Analyzer is the struct
+responsible for receiving the AST (and some other things), finding the things that
+we consider errors, notifying <code>go vet</code> of those errors, and alerting the user.</p>
+<p>Let&rsquo;s build our Analyzer.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#09f;font-style:italic">// File: checkwords.go
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">package</span> main
+
+<span style="color:#069;font-weight:bold">import</span> (
+	<span style="color:#c30">&#34;go/ast&#34;</span>
+	<span style="color:#c30">&#34;go/token&#34;</span>
+	<span style="color:#c30">&#34;strings&#34;</span>
+
+	<span style="color:#c30">&#34;golang.org/x/tools/go/analysis&#34;</span>
+	<span style="color:#c30">&#34;golang.org/x/tools/go/analysis/unitchecker&#34;</span>
+)
+
+<span style="color:#069;font-weight:bold">var</span> analyzer = <span style="color:#555">&amp;</span>analysis.Analyzer{
+	Name: <span style="color:#c30">&#34;checkWords&#34;</span>,
+	Doc:  <span style="color:#c30">&#34;check forbidden words usage in our strings&#34;</span>,
+	Run:  run,
+}
+
+<span style="color:#069;font-weight:bold">func</span> <span style="color:#c0f">run</span>(pass <span style="color:#555">*</span>analysis.Pass) (<span style="color:#069;font-weight:bold">interface</span>{}, <span style="color:#078;font-weight:bold">error</span>) {
+	forbiddenWords <span style="color:#555">:=</span> []<span style="color:#078;font-weight:bold">string</span>{
+		<span style="color:#c30">&#34;bird&#34;</span>,
+		<span style="color:#c30">&#34;water&#34;</span>,
+		<span style="color:#c30">&#34;candy&#34;</span>,
+	}
+
+	<span style="color:#069;font-weight:bold">for</span> _, file <span style="color:#555">:=</span> <span style="color:#069;font-weight:bold">range</span> pass.Files {
+		ast.<span style="color:#c0f">Inspect</span>(file, <span style="color:#069;font-weight:bold">func</span>(node ast.Node) <span style="color:#078;font-weight:bold">bool</span> {
+			<span style="color:#069;font-weight:bold">switch</span> x <span style="color:#555">:=</span> node.(<span style="color:#069;font-weight:bold">type</span>) {
+			<span style="color:#069;font-weight:bold">case</span> <span style="color:#555">*</span>ast.BasicLit:
+				<span style="color:#069;font-weight:bold">if</span> x.Kind <span style="color:#555">!=</span> token.STRING {
+					<span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">false</span>
+				}
+				words <span style="color:#555">:=</span> strings.<span style="color:#c0f">Fields</span>(x.Value)
+				<span style="color:#069;font-weight:bold">for</span> _, word <span style="color:#555">:=</span> <span style="color:#069;font-weight:bold">range</span> words {
+					<span style="color:#069;font-weight:bold">for</span> _, forbiddenWord <span style="color:#555">:=</span> <span style="color:#069;font-weight:bold">range</span> forbiddenWords {
+						<span style="color:#069;font-weight:bold">if</span> word <span style="color:#555">==</span> forbiddenWord {
+							pass.<span style="color:#c0f">Reportf</span>(x.<span style="color:#c0f">Pos</span>(), <span style="color:#c30">&#34;Forbidden word used, please do not use the word %s in your strings&#34;</span>, word)
+						}
+					}
+				}
+				<span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">false</span>
+			}
+			<span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">true</span>
+		})
+	}
+	<span style="color:#069;font-weight:bold">return</span> <span style="color:#069;font-weight:bold">nil</span>, <span style="color:#069;font-weight:bold">nil</span>
+}
+
+<span style="color:#069;font-weight:bold">func</span> <span style="color:#c0f">main</span>() {
+	unitchecker.<span style="color:#c0f">Main</span>(
+		analyzer,
+	)
+}
+</code></pre></div><p>Our Analyzer is inspecting all the files searching for <code>*ast.BasicLit</code> of <code>Kind</code>
+<code>token.STRING</code>, which are our literal strings. It splits those strings by spaces,
+and checks whether any of them match the forbidden words (this is a completely
+basic approach, and doesn&rsquo;t catch a lot of cases, but for the sake of
+simplicity I&rsquo;ll leave it as is). If it finds any forbidden words, it reports to
+the user with an error message; <code>go vet</code> handles printing the filename and
+location of the error.</p>
+<p>Once we have our Analyzer we only have to register the Analyzer in our main
+function to connect it with <code>go vet</code> using the <code>unitchecker.Main</code> function (we can
+register multiple analyzers there).</p>
+<p>Now we only need to compile it with <code>go build ./checkwords.go</code> and use it with
+<code>go vet -vettool=./checkwords -checkWords ./file-or-module-path</code>.</p>
+<p>For example, we can create an <code>example.go</code> file like this:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#069;font-weight:bold">package</span> main
+
+<span style="color:#069;font-weight:bold">import</span> <span style="color:#c30">&#34;fmt&#34;</span>
+
+<span style="color:#069;font-weight:bold">func</span> <span style="color:#c0f">main</span>() {
+	fmt.<span style="color:#c0f">Println</span>(<span style="color:#c30">&#34;my candy is forbidden!&#34;</span>)
+	fmt.<span style="color:#c0f">Println</span>(<span style="color:#c30">&#34;but other strings are not&#34;</span>)
+}
+</code></pre></div><p>and run our <code>go vet</code> tool to check this with <code>go vet -vettool=./checkwords -checkWords example.go</code> and the resulting output is:</p>
+<pre><code># command-line-arguments
+./example.go:6:14: Forbidden word used, please do not use the word candy in your strings
+</code></pre><p>And that is all we need. Now we have an automatic way to detect undesired
+patterns in our code.</p>
+<p>We have been using our version for a number of months and our conclusion is
+that using the <code>go vet</code> tool is an excellent opportunity to improve your code. In
+addition, extending it allows you to define your own patterns and maintain the
+consistency of your code. With our open source culture you can find our
+implementations at our
+<a href="https://github.com/mattermost/mattermost-govet">mattermost-govet</a> repository.
+If you see yourself asking for the same changes in PRs all the time, you
+can probably consider using <code>go vet</code> to detect the issues automatically.</p>
+<p>Once the patterns are created you can apply them whenever you want, maybe by
+hand from time to time, maybe as a Git hook, maybe enforced by the CI, maybe
+you can use it as a one time thing for changing something in your code - the
+option you decide on is up to you and your use case.</p>
+
+
+                    <hr>
+                    
+                    Written by
+                    
+                    Jesús Espino
+-
+<a href="https://community.mattermost.com/core/messages/@jesus.espino" target="_blank">
+    @jesus.espino
+</a>
+on
+<a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676" target="_blank">
+    community.mattermost.com
+</a>
+and
+<a href="https://github.com/jespino" target="_blank">
+    @jespino
+</a>
+on GitHub
+
+                    
+                    
+                    <br />
+                    <br />
+                    Join us on <a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676"
+                        target="_blank">community.mattermost.com</a>!
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 doc-content tags-sidebar">
+                <div class="well well-sm">
+                    
+                    
+
+
+                    <h6>Other Posts</h6>
+                    <ul class="list-unstyled">
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/pritunl/">From OpenVPN to Pritunl VPN: The transition</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/open-tracing/">OpenTracing for Go Projects</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/hands-on-iouring-go/">Getting Hands-on with io_uring using Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/advanced-git-tbilisi-free-university/">Advanced Git with the Free University of Tbilisi</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/all-about-emojis/">All About Emojis</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/instrumenting-go-code-via-ast-2/">Instrumenting Go code via AST, Part 2</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/layered-store-and-struct-embedding/">Layered Store and Struct Embedding in Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/incorporating-golangci-lint/">Incorporating GolangCI-Lint at Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/on-hermes-and-mattermost/">On Hermes and Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/onboarding-with-mattermost/">Onboarding with Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/kubecon-na-2019/">KubeCon NA 2019</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/cloud-monitoring/">Monitoring a Multi-Cluster Environment Using Prometheus Federation and Grafana</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/localizing-matterpoll/">Localizing Matterpoll</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
