@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infrastructure on Mattermost Developers</title>
+    <link>/internal/infrastructure/</link>
+    <description>Recent content in Infrastructure on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Nov 2017 19:30:07 -0500</lastBuildDate>
+    
+	<atom:link href="/internal/infrastructure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Community Grafana</title>
+      <link>/internal/infrastructure/grafana/</link>
+      <pubDate>Tue, 31 Mar 2020 20:52:46 -0500</pubDate>
+      
+      <guid>/internal/infrastructure/grafana/</guid>
+      <description>Community Grafana The Grafana application is used to visualise the performance metrics of the community installations. The application runs in the Mattermost Cloud infrastructure in the same cluster that community installations are hosted.
+Grafana URL: https://grafana.mattermost.com
+How to create and use the variable that enables selection between installations To get the different versions of installations in a simple variable, a variable of type query needs to be created with a query value of label_values(v1alpha1_mattermost_com_installation).</description>
+    </item>
+    
+    <item>
+      <title>VPN(CLOUD)</title>
+      <link>/internal/infrastructure/vpn-cloud/</link>
+      <pubDate>Tue, 05 Jun 2018 16:08:19 +0200</pubDate>
+      
+      <guid>/internal/infrastructure/vpn-cloud/</guid>
+      <description>Table of contents
+ Setup VPN access on Pritunl  Viscosity client Pritunl client   Older Setup of VPN access on OpenVPN  Setup VPN access on Pritunl Viscosity client  Install a VPN client that supports DNS settings such as Visocity.  brew cask install viscosity  Go to the VPN server and select Sign in with OneLogin. Then connect with your OneLogin username and password and when prompt put the OTP (One Time Password).</description>
+    </item>
+    
+    <item>
+      <title>VPN</title>
+      <link>/internal/infrastructure/vpn/</link>
+      <pubDate>Mon, 28 May 2018 16:08:19 +0200</pubDate>
+      
+      <guid>/internal/infrastructure/vpn/</guid>
+      <description>Setup VPN access VPN Server: https://vpn.internal.mattermost.com
+  Access the Onelogin link sent in the invitation email
+  Select in the two-factor auth OneLogin Protect or Yubikey (if you have an yubikey device)
+iOS: https://itunes.apple.com/us/app/onelogin-protect/id509252983?mt=8
+Android: https://play.google.com/store/apps/details?id=com.onelogin.newotp&amp;amp;hl=en
+  Configure your two-factor
+  Access the vpn server to download the client (if you don&amp;rsquo;t have) and the config file (Used Locked profile)
+ Select Login and type your email and password (the same you used in the Onelogin)  Download the client for your OS Download the User locked profile     Install the GUI client</description>
+    </item>
+    
+    <item>
+      <title>Vault</title>
+      <link>/internal/infrastructure/vault/</link>
+      <pubDate>Mon, 06 Nov 2017 19:30:07 -0500</pubDate>
+      
+      <guid>/internal/infrastructure/vault/</guid>
+      <description>Vault is a high security secret store. At Mattermost, its primary purpose is to sign SSH keys.
+Installation If you&amp;rsquo;re on macOS and have Brew installed, you can just brew install vault. Otherwise, see the Vault installation instructions.
+Once installed, you&amp;rsquo;ll need to configure it. Add the following to your .bash_profile or .zshrc:
+export VAULT_ADDR=&#39;https://vault.internal.mattermost.com:8200&#39; Authenticating Authentication is done via OneLogin and RADIUS:
+$ vault login -method=radius username=your_username@mattermost.com OneLogin users must have the &amp;ldquo;Developers&amp;rdquo; role in order to authenticate.</description>
+    </item>
+    
+    <item>
+      <title>Adding a Plugin to Community</title>
+      <link>/internal/infrastructure/plugins/</link>
+      <pubDate>Mon, 06 Nov 2017 19:30:07 -0500</pubDate>
+      
+      <guid>/internal/infrastructure/plugins/</guid>
+      <description>To add a plugin to https://community.mattermost.com, you need to do the following:
+ Add the configuration for your plugin and enable it by modifying PluginSettings and PluginState here: https://github.com/mattermost/platform-private/blob/master/kubernetes/community-kubernetes/configmap-config.yaml   community-daily is using the configuration in the Database, so to configure the plugin you need first deploy the plugin and then access the system console and configure the plugin and enable it.  Add a line for your plugin here so it gets downloaded https://github.</description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>/internal/infrastructure/aws/</link>
+      <pubDate>Mon, 06 Nov 2017 19:30:07 -0500</pubDate>
+      
+      <guid>/internal/infrastructure/aws/</guid>
+      <description>Most of our infrastructure is hosted in AWS.
+Accessing AWS You can sign into the web console for the master AWS account at this URL:
+https://mattermost.signin.aws.amazon.com/console
+After signing into the master account, you can access other accounts within the organization through role switching. This can be done from the dropdown on the right side of the console&amp;rsquo;s menu bar, or you can use this link to switch to the developer account:</description>
+    </item>
+    
+    <item>
+      <title>OneLogin and AWS</title>
+      <link>/internal/infrastructure/onelogin-aws/</link>
+      <pubDate>Wed, 07 Nov 2018 16:10:15 +0100</pubDate>
+      
+      <guid>/internal/infrastructure/onelogin-aws/</guid>
+      <description>Generating AWS Keys using OneLogin authentication We use https://github.com/physera/onelogin-aws-cli to generate temporary AWS keys.
+Installation To install, use pip:
+$ pip install onelogin-aws-cli Note that onelogin-aws-cli requires Python 3. It is not recommended to install Python packages globally on your system.
+Usage Running onelogin-aws-login will perform the authentication against OneLogin, and cache the credentials in the AWS CLI Shared Credentials File.
+For every required piece of information, the program will present interactive inputs, unless that value has already been provided through either command line parameters, environment variables, or configuration file directives.</description>
+    </item>
+    
+    <item>
+      <title>Build</title>
+      <link>/internal/infrastructure/build/</link>
+      <pubDate>Mon, 20 Nov 2017 20:52:46 -0500</pubDate>
+      
+      <guid>/internal/infrastructure/build/</guid>
+      <description>Jenkins build.mattermost.com Most of our automated builds currently take place on Jenkins at build.mattermost.com.
+Updating Go Builds on this Jenkins installation use a globally installed Golang distribution. To update it, you&amp;rsquo;ll need to access the master instance and all of its slaves. Make sure the machine isn&amp;rsquo;t in use, then run the following (replacing &amp;ldquo;1.9.2 &amp;rdquo; with the desired Go version):
+wget https://storage.googleapis.com/golang/go1.9.2 .linux-amd64.tar.gz sudo su rm -r /usr/local/go/ tar -C /usr/local -xzf go1.</description>
+    </item>
+    
+    <item>
+      <title>Guidelines for New Infrastructure</title>
+      <link>/internal/infrastructure/guidelines/</link>
+      <pubDate>Mon, 06 Nov 2017 19:30:07 -0500</pubDate>
+      
+      <guid>/internal/infrastructure/guidelines/</guid>
+      <description>All new infrastructure should meet these requirements. Authentication should be centralized. OneLogin, LDAP, IAM Groups, GitHub, or even Mattermost should define the level of access granted to a person. We want to minimize the number of steps required to onboard or offboard new team members and don&amp;rsquo;t want to have to grant or revoke access service-by-service.
+For example, new machines in AWS should be created without a keypair and use Vault+OneLogin to control SSH access.</description>
+    </item>
+    
+  </channel>
+</rss>

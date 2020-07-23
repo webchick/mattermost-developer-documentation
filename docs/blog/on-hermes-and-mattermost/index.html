@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> On Hermes and Mattermost</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../blog/on-hermes-and-mattermost/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/tabs.css">
+<link rel="stylesheet" href="../../css/bar.css">
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/code.css">
+<link rel="stylesheet" href="../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/tabs.js"></script>
+<script src="../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+</head>
+
+<body class="blog-single">
+    <header>
+    <a href="../../"><img src="../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li><a href="../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 doc-content">
+                <div class="well well-sm">
+                    <div class="blog-item__header">
+                        <div class="blog-item__title">On Hermes and Mattermost<br> <small></small></div>
+                        <div class="blog-item__info">
+                            December 20, 2019
+                            <small class="blog-item__count">529 words</small>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>With the upgrade to <a href="https://facebook.github.io/react-native/blog/2019/09/18/version-0.61">React Native 61</a> came the prospect of substantially improving performance of our Android app. How? Through the use of <a href="https://github.com/facebook/hermes">Hermes</a>, Facebook’s new JavaScript engine. To say that we were excited is an understatement. And with that excitement came curiosity: how is this new JavaScript engine achieving performance boosts?</p>
+<p>Let’s first chat a bit about JS engines in general.</p>
+<p>How does your JavaScript code eventually get executed by the CPU on the machine? Through a JavaScript engine. Initially JS engines interpreted JS code, that is, as each line came in during run-time the JS engine would translate it to machine code that the host machine then executed. Later, with the use of Just-In-Time (JIT) compilation, optimizations could be made since “hot code” can be compiled and stored so that it, instead of the source code, could be executed the next time it’s needed.</p>
+<p>Another optimization that can be made is type specialization. Because of JavaScript’s dynamic type system, the compiler needs to check the types of each element every time it’s accessed during execution when it encounters, for instance, a for-loop on an array. To avoid this, the compiler can move the type checks before the loop so that it’s done only once. You can read more about JIT compilers <a href="https://hacks.mozilla.org/2017/02/a-crash-course-in-just-in-time-jit-compilers/">here</a>.</p>
+<p>How does this all play in with React Native? In React Native, the JS engine used is the one provided by the <a href="https://developer.apple.com/documentation/javascriptcore">JavaScriptCore Framework</a> which is included by default in iOS. To build for Android, Facebook provides build scripts in their <a href="https://github.com/facebook/android-jsc">android-jsc</a> Github repository. When you build your app, the JS source code is minified and included in your APK as a resource. When your app starts running all the JS code is handled by the JSC engine and all the optimization is done at run-time through the JIT compiler.</p>
+<p>But what if that optimization could be done during build time? That’s where Hermes comes in.</p>
+<p>With Hermes, there is no JIT compiler. Instead, the compilation and optimization of the JS code happens when the APK is built and an optimized bytecode is included as a resource in your APK instead of a minified JS code. This has various benefits including decreasing launch time since the bytecode is ready to be executed. It also allows for considerations of more complex and time-consuming optimizations since the compilation process no longer affects the end-user.</p>
+<p>So, once we upgraded to RN 61 and enabled Hermes, we were ecstatic to see the Mattermost Android app launch within 3 seconds as opposed to about 7 without Hermes. You can see a demo of this presented during the Chain React 2019 <a href="https://www.youtube.com/watch?v=zEjqDWqeDdg&amp;feature=youtu.be&amp;t=156">here</a>. Unfortunately, after further use of our app we experienced very noticeable lag when scrolling the channel list, opening or closing the sidebars, and switching channels. Sadly, the app was unusable so we shipped Mobile App v1.26 without Hermes enabled.</p>
+<p>The bugs in Hermes that seemed to be the cause of these issues have since been fixed and we have a <a href="https://mattermost.atlassian.net/browse/MM-21184">JIRA ticket</a> to plan to build the latest Hermes, package it with RN, and test to see if we can ship Mobile App v1.28 with Hermes enabled. Stay tuned!</p>
+
+
+                    <hr>
+                    
+                    Written by
+                    
+                    Miguel Alatzar
+-
+<a href="https://community.mattermost.com/core/messages/@miguel.alatzar" target="_blank">
+    @miguel.alatzar
+</a>
+on
+<a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676" target="_blank">
+    community.mattermost.com
+</a>
+and
+<a href="https://github.com/migbot" target="_blank">
+    @migbot
+</a>
+on GitHub
+
+                    
+                    
+                    <br />
+                    <br />
+                    Join us on <a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676"
+                        target="_blank">community.mattermost.com</a>!
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 doc-content tags-sidebar">
+                <div class="well well-sm">
+                    
+                    
+
+
+                    <h6>Other Posts</h6>
+                    <ul class="list-unstyled">
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/pritunl/">From OpenVPN to Pritunl VPN: The transition</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/open-tracing/">OpenTracing for Go Projects</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/hands-on-iouring-go/">Getting Hands-on with io_uring using Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/advanced-git-tbilisi-free-university/">Advanced Git with the Free University of Tbilisi</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/all-about-emojis/">All About Emojis</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/maintaining-consistency-in-codebases-with-go-vet/">Maintaining Consistency in Codebases with Go vet</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/instrumenting-go-code-via-ast-2/">Instrumenting Go code via AST, Part 2</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/layered-store-and-struct-embedding/">Layered Store and Struct Embedding in Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/incorporating-golangci-lint/">Incorporating GolangCI-Lint at Mattermost</a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/onboarding-with-mattermost/">Onboarding with Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/kubecon-na-2019/">KubeCon NA 2019</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/cloud-monitoring/">Monitoring a Multi-Cluster Environment Using Prometheus Federation and Grafana</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/localizing-matterpoll/">Localizing Matterpoll</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

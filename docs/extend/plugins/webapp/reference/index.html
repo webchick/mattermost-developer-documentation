@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Web App Reference</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../../../extend/plugins/webapp/reference/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../css/tabs.css">
+<link rel="stylesheet" href="../../../../css/bar.css">
+<link rel="stylesheet" href="../../../../css/styles.css">
+<link rel="stylesheet" href="../../../../css/code.css">
+<link rel="stylesheet" href="../../../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../js/tabs.js"></script>
+<script src="../../../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+    </head>
+<body>
+    <header>
+    <a href="../../../../"><img src="../../../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li><a href="../../../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+    <div class="sidebar__menu-toggle">
+        Web App Reference
+        <i class="fa fa-bars pull-right"></i>
+    </div>
+    <div class="row sidebar__links">
+        
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../../extend/getting-started/"> Getting Started</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../extend/customization/"> Customizing Mattermost</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/customization/server-build/"> Server Build (Team Edition)</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/customization/server-files/"> Server Files</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/customization/webapp/"> Web App</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+                    
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../extend/plugins/"> Plugins (Beta)</a>
+                    
+                </span>
+                <ul class="sub-menu" style="display: block">
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/overview/"> Overview</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../../extend/plugins/server/"> Server Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../../extend/plugins/server/hello-world/">Quick Start</a>
+                            
+                                <a class="item " href="../../../../extend/plugins/server/reference/">Server Reference</a>
+                            
+                                <a class="item " href="../../../../extend/plugins/server/ha/">High Availability</a>
+                            
+                                <a class="item " href="../../../../extend/plugins/server/debugging/"></a>
+                            
+                                <a class="item " href="../../../../extend/plugins/server/best-practices/">Best Practices</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../../extend/plugins/webapp/"> Web App Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                                <a class="item " href="../../../../extend/plugins/webapp/hello-world/">Quick Start</a>
+                            
+                                <a class="item active" href="../../../../extend/plugins/webapp/reference/">Web App Reference</a>
+                            
+                                <a class="item " href="../../../../extend/plugins/webapp/actions/">Redux Actions</a>
+                            
+                                <a class="item " href="../../../../extend/plugins/webapp/best-practices/">Design Best Practices</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/manifest-reference/"> Manifest Reference</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/mobile/"> Mobile Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/example-plugins/"> Example Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/migration/"> Migrating Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/community_process/"> Process to Include Plugin on Community</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/community-plugin-marketplace/"> Community Plugins in the Marketplace</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/best-practices/"> Best Practices</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../extend/plugins/helpers/"> Plugin Helpers</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../../extend/embed/"> Embed</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+        
+    </div>
+</div>
+
+                <div class="col-lg-9 doc-content">
+                    
+<a href="https://github.com/mattermost/mattermost-developer-documentation/edit/master/site/content/extend/plugins/webapp/reference.md" class="float-right edit-github">
+    Edit on GitHub
+</a>
+
+
+                    <h1 class="mt-0 doc-title">
+                        Web App Reference
+                    </h1>
+                    <h2 id="pluginclass">PluginClass&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#pluginclass"></i></a> </h2>
+<p>The PluginClass interface defines two methods used by the Mattermost web app to <code>initialize</code> and <code>uninitialize</code> your plugin:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">class</span> PluginClass {
+    <span style="color:#09f;font-style:italic">/**
+</span><span style="color:#09f;font-style:italic">    * initialize is called by the webapp when the plugin is first loaded.
+</span><span style="color:#09f;font-style:italic">    * Receives the following:
+</span><span style="color:#09f;font-style:italic">    * - registry - an instance of the registry tied to your plugin id
+</span><span style="color:#09f;font-style:italic">    * - store - the Redux store of the web app.
+</span><span style="color:#09f;font-style:italic">    */</span>
+    initialize(registry, store)
+
+    <span style="color:#09f;font-style:italic">/**
+</span><span style="color:#09f;font-style:italic">    * uninitialize is called by the webapp if your plugin is uninstalled
+</span><span style="color:#09f;font-style:italic">    */</span>
+    uninitialize()
+}
+</code></pre></div><a name="registerPlugin"/>
+<p>Your plugin should implement this class and register it using the global <code>registerPlugin</code> method defined on the window by the webapp:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#366">window</span>.registerPlugin(<span style="color:#c30">&#39;myplugin&#39;</span>, <span style="color:#069;font-weight:bold">new</span> PluginClass());
+</code></pre></div><p>Use the provided <a href="#registry">registry</a> to register components, post type overrides and callbacks. Use the store to access the global state of the web app, but note that you should use the registry to register any custom reducers your plugin might require.</p>
+<h3 id="example">Example&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#example"></i></a> </h3>
+<p>The entry point <code>index.js</code> of your application might contain:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">import</span> UserPopularity from <span style="color:#c30">&#39;./components/profile_popover/user_popularity&#39;</span>;
+<span style="color:#069;font-weight:bold">import</span> SomePost from <span style="color:#c30">&#39;./components/some_post&#39;</span>;
+<span style="color:#069;font-weight:bold">import</span> MenuIcon from <span style="color:#c30">&#39;./components/menu_icon&#39;</span>;
+<span style="color:#069;font-weight:bold">import</span> {openExampleModal} from <span style="color:#c30">&#39;./actions&#39;</span>;
+
+<span style="color:#069;font-weight:bold">class</span> PluginClass {
+    initialize(registry, store) {
+        registry.registerPopoverUserAttributesComponent(
+            UserPopularity,
+        );
+        registry.registerPostTypeComponent(
+            <span style="color:#c30">&#39;custom_somepost&#39;</span>,
+            SomePost,
+        );
+        registry.registerMainMenuAction(
+            <span style="color:#c30">&#39;Plugin Menu Item&#39;</span>,
+            () =&gt; store.dispatch(openExampleModal()),
+            mobile_icon<span style="color:#555">:</span> MenuIcon,
+        );
+    }
+
+    uninitialize() {
+        <span style="color:#09f;font-style:italic">// No clean up required.
+</span><span style="color:#09f;font-style:italic"></span>    }
+}
+
+<span style="color:#366">window</span>.registerPlugin(<span style="color:#c30">&#39;myplugin&#39;</span>, <span style="color:#069;font-weight:bold">new</span> PluginClass());
+</code></pre></div><p>This will add a custom <code>UserPopularity</code> component to the profile popover, render a custom <code>SomePost</code> component for any post with the type <code>custom_somepost</code>, and insert a custom main menu item.</p>
+<h2 id="registry">Registry&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registry"></i></a> </h2>
+<p>An instance of the plugin registry is passed to each plugin via the <code>initialize</code> callback.</p>
+
+
+
+
+
+
+
+
+
+
+
+    <div>
+        
+    <ul>
+        
+        <li><a href="#registerRootComponent">registerRootComponent(component)</a></li>
+        
+        <li><a href="#registerPopoverUserAttributesComponent">registerPopoverUserAttributesComponent(component)</a></li>
+        
+        <li><a href="#registerPopoverUserActionsComponent">registerPopoverUserActionsComponent(component)</a></li>
+        
+        <li><a href="#registerLeftSidebarHeaderComponent">registerLeftSidebarHeaderComponent(component)</a></li>
+        
+        <li><a href="#registerBottomTeamSidebarComponent">registerBottomTeamSidebarComponent(component)</a></li>
+        
+        <li><a href="#registerPostMessageAttachmentComponent">registerPostMessageAttachmentComponent(component)</a></li>
+        
+        <li><a href="#registerLinkTooltipComponent">registerLinkTooltipComponent(component)</a></li>
+        
+        <li><a href="#registerChannelHeaderButtonAction">registerChannelHeaderButtonAction(icon, action, dropdownText, tooltipText)</a></li>
+        
+        <li><a href="#registerPostTypeComponent">registerPostTypeComponent(type, component)</a></li>
+        
+        <li><a href="#registerPostCardTypeComponent">registerPostCardTypeComponent(type, component)</a></li>
+        
+        <li><a href="#registerPostWillRenderEmbedComponent">registerPostWillRenderEmbedComponent(match, component, toggleable)</a></li>
+        
+        <li><a href="#registerMainMenuAction">registerMainMenuAction(text, action, mobileIcon)</a></li>
+        
+        <li><a href="#registerChannelHeaderMenuAction">registerChannelHeaderMenuAction(text, action)</a></li>
+        
+        <li><a href="#registerPostDropdownMenuAction">registerPostDropdownMenuAction(text, action, filter)</a></li>
+        
+        <li><a href="#registerPostDropdownSubMenuAction">registerPostDropdownSubMenuAction(text, action, filter)</a></li>
+        
+        <li><a href="#registerPostDropdownMenuComponent">registerPostDropdownMenuComponent(component)</a></li>
+        
+        <li><a href="#registerFileUploadMethod">registerFileUploadMethod(icon, action, text)</a></li>
+        
+        <li><a href="#registerFilesWillUploadHook">registerFilesWillUploadHook(hook)</a></li>
+        
+        <li><a href="#unregisterComponent">unregisterComponent(componentId)</a></li>
+        
+        <li><a href="#unregisterPostTypeComponent">unregisterPostTypeComponent(componentId)</a></li>
+        
+        <li><a href="#registerReducer">registerReducer(reducer)</a></li>
+        
+        <li><a href="#registerWebSocketEventHandler">registerWebSocketEventHandler(event, handler)</a></li>
+        
+        <li><a href="#unregisterWebSocketEventHandler">unregisterWebSocketEventHandler(event)</a></li>
+        
+        <li><a href="#registerReconnectHandler">registerReconnectHandler(handler)</a></li>
+        
+        <li><a href="#unregisterReconnectHandler">unregisterReconnectHandler()</a></li>
+        
+        <li><a href="#registerMessageWillBePostedHook">registerMessageWillBePostedHook(hook)</a></li>
+        
+        <li><a href="#registerSlashCommandWillBePostedHook">registerSlashCommandWillBePostedHook(hook)</a></li>
+        
+        <li><a href="#registerMessageWillFormatHook">registerMessageWillFormatHook(hook)</a></li>
+        
+        <li><a href="#registerFilePreviewComponent">registerFilePreviewComponent(override, component)</a></li>
+        
+        <li><a href="#registerTranslations">registerTranslations(getTranslationsForLocale)</a></li>
+        
+        <li><a href="#registerAdminConsolePlugin">registerAdminConsolePlugin(func)</a></li>
+        
+        <li><a href="#registerAdminConsoleCustomSetting">registerAdminConsoleCustomSetting(key, component, )</a></li>
+        
+        <li><a href="#unregisterAdminConsolePlugin">unregisterAdminConsolePlugin()</a></li>
+        
+        <li><a href="#registerRightHandSidebarComponent">registerRightHandSidebarComponent(component, title)</a></li>
+        
+        <li><a href="#registerNeedsTeamRoute">registerNeedsTeamRoute(route, component)</a></li>
+        
+        <li><a href="#registerCustomRoute">registerCustomRoute(route, component)</a></li>
+        
+    </ul>
+
+    </div>
+    <hr />
+    
+    
+        <div>
+            <h5 id="registerRootComponent">registerRootComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerRootComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component at the root of the channel view of the app.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerRootComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPopoverUserAttributesComponent">registerPopoverUserAttributesComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPopoverUserAttributesComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component in the user attributes section of the profile popover (hovercard), below the default user attributes.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerPopoverUserAttributesComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPopoverUserActionsComponent">registerPopoverUserActionsComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPopoverUserActionsComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component in the user actions of the profile popover (hovercard), below the default actions.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerPopoverUserActionsComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerLeftSidebarHeaderComponent">registerLeftSidebarHeaderComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerLeftSidebarHeaderComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component fixed to the top of the left-hand channel sidebar.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerLeftSidebarHeaderComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerBottomTeamSidebarComponent">registerBottomTeamSidebarComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerBottomTeamSidebarComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component fixed to the bottom of the team sidebar. Does not render if
+    * user is only on one team and the team sidebar is not shown.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerBottomTeamSidebarComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostMessageAttachmentComponent">registerPostMessageAttachmentComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostMessageAttachmentComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component fixed to the bottom of the post message.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerPostMessageAttachmentComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerLinkTooltipComponent">registerLinkTooltipComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerLinkTooltipComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component to show as a tooltip when a user hovers on a link in a post.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerLinkTooltipComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerChannelHeaderButtonAction">registerChannelHeaderButtonAction&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerChannelHeaderButtonAction"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Add a button to the channel header. If there are more than one buttons registered by any
+    * plugin, a dropdown menu is created to contain all the plugin buttons.
+    * Accepts the following:
+    * - icon - React element to use as the button&#39;s icon
+    * - action - a function called when the button is clicked, passed the channel and channel member as arguments
+    * - dropdown_text - string or React element shown for the dropdown button description
+    * - tooltip_text - string shown for tooltip appear on hover
+*/
+registerChannelHeaderButtonAction(icon, action, dropdownText, tooltipText)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostTypeComponent">registerPostTypeComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostTypeComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component to render a custom body for posts with a specific type.
+    * Custom post types must be prefixed with &#39;custom_&#39;.
+    * Custom post types can also apply for ephemeral posts.
+    * Accepts a string type and a component.
+    * Returns a unique identifier.
+*/
+registerPostTypeComponent(type, component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostCardTypeComponent">registerPostCardTypeComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostCardTypeComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component to render a custom body for post cards with a specific type.
+    * Custom post types must be prefixed with &#39;custom_&#39;.
+    * Accepts a string type and a component.
+    * Returns a unique identifier.
+*/
+registerPostCardTypeComponent(type, component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostWillRenderEmbedComponent">registerPostWillRenderEmbedComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostWillRenderEmbedComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component to render a custom embed preview for post links.
+    * Accepts the following:
+    * - match - A function that receives the embed object and returns a
+    *   boolean indicating if the plugin is able to process it.
+    *   The embed object contains the embed `type`, the `url` of the post link
+    *   and in some cases, a `data` object with information related to the
+    *   link (the opengraph or the image details, for example).
+    * - component - The component that renders the embed view for the link
+    * - toggleable - A boolean indicating if the embed view should be collapsable
+    * Returns a unique identifier.
+*/
+registerPostWillRenderEmbedComponent(match, component, toggleable)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerMainMenuAction">registerMainMenuAction&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerMainMenuAction"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a main menu list item by providing some text and an action function.
+    * Accepts the following:
+    * - text - A string or React element to display in the menu
+    * - action - A function to trigger when component is clicked on
+    * - mobileIcon - A React element to display as the icon in the menu in mobile view
+    * Returns a unique identifier.
+*/
+registerMainMenuAction(text, action, mobileIcon)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerChannelHeaderMenuAction">registerChannelHeaderMenuAction&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerChannelHeaderMenuAction"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a channel menu list item by providing some text and an action function.
+    * Accepts the following:
+    * - text - A string or React element to display in the menu
+    * - action - A function that receives the channelId and is called when the menu items is clicked.
+    * Returns a unique identifier.
+*/
+registerChannelHeaderMenuAction(text, action)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostDropdownMenuAction">registerPostDropdownMenuAction&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostDropdownMenuAction"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a post menu list item by providing some text and an action function.
+    * Accepts the following:
+    * - text - A string or React element to display in the menu
+    * - action - A function to trigger when component is clicked on
+    * - filter - A function whether to apply the plugin into the post&#39; dropdown menu
+    * Returns a unique identifier.
+*/
+registerPostDropdownMenuAction(text, action, filter)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostDropdownSubMenuAction">registerPostDropdownSubMenuAction&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostDropdownSubMenuAction"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a post sub menu list item by providing some text and an action function.
+    * Accepts the following:
+    * - text - A string or React element to display in the menu
+    * - action - A function to trigger when component is clicked on
+    * - filter - A function whether to apply the plugin into the post&#39; dropdown menu
+    *
+    * Returns an unique identifier for the root submenu, and a function to register submenu items.
+    * At this time, only one level of nesting is allowed to avoid rendering issue in the RHS.
+*/
+registerPostDropdownSubMenuAction(text, action, filter)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerPostDropdownMenuComponent">registerPostDropdownMenuComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerPostDropdownMenuComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component at the bottom of the post dropdown menu.
+    * Accepts a React component. Returns a unique identifier.
+*/
+registerPostDropdownMenuComponent(component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerFileUploadMethod">registerFileUploadMethod&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerFileUploadMethod"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a file upload method by providing some text, an icon, and an action function.
+    * Accepts the following:
+    * - icon - JSX element to use as the button&#39;s icon
+    * - text - A string or JSX element to display in the file upload menu
+    * - action - A function to trigger when the menu item is selected.
+    * Returns a unique identifier.
+*/
+registerFileUploadMethod(icon, action, text)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerFilesWillUploadHook">registerFilesWillUploadHook&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerFilesWillUploadHook"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a hook to intercept file uploads before they take place.
+    * Accepts a function to run before files get uploaded. Receives an array of
+    * files and a function to upload files at a later time as arguments. Must
+    * return an object that can contain two properties:
+    * - message - An error message to display, leave blank or null to display no message
+    * - files - Modified array of files to upload, set to null to reject all files
+    * Returns a unique identifier.
+*/
+registerFilesWillUploadHook(hook)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="unregisterComponent">unregisterComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#unregisterComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Unregister a component, action or hook using the unique identifier returned after registration.
+    * Accepts a string id.
+    * Returns undefined in all cases.
+*/
+unregisterComponent(componentId)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="unregisterPostTypeComponent">unregisterPostTypeComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#unregisterPostTypeComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Unregister a component that provided a custom body for posts with a specific type.
+    * Accepts a string id.
+    * Returns undefined in all cases.
+*/
+unregisterPostTypeComponent(componentId)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerReducer">registerReducer&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerReducer"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a reducer against the Redux store. It will be accessible in redux state
+    * under &#34;state[&#39;plugins-&lt;yourpluginid&gt;&#39;]&#34;
+    * Accepts a reducer. Returns undefined.
+*/
+registerReducer(reducer)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerWebSocketEventHandler">registerWebSocketEventHandler&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerWebSocketEventHandler"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a handler for WebSocket events.
+    * Accepts the following:
+    * - event - the event type, can be a regular server event or an event from plugins.
+    * Plugin events will have &#34;custom_&lt;pluginid&gt;_&#34; prepended
+    * - handler - a function to handle the event, receives the event message as an argument
+    * Returns undefined.
+*/
+registerWebSocketEventHandler(event, handler)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="unregisterWebSocketEventHandler">unregisterWebSocketEventHandler&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#unregisterWebSocketEventHandler"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Unregister a handler for a custom WebSocket event.
+    * Accepts a string event type.
+    * Returns undefined.
+*/
+unregisterWebSocketEventHandler(event)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerReconnectHandler">registerReconnectHandler&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerReconnectHandler"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a handler that will be called when the app reconnects to the
+    * internet after previously disconnecting.
+    * Accepts a function to handle the event. Returns undefined.
+*/
+registerReconnectHandler(handler)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="unregisterReconnectHandler">unregisterReconnectHandler&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#unregisterReconnectHandler"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Unregister a previously registered reconnect handler.
+    * Returns undefined.
+*/
+unregisterReconnectHandler()</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerMessageWillBePostedHook">registerMessageWillBePostedHook&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerMessageWillBePostedHook"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a hook that will be called when a message is posted by the user before it
+    * is sent to the server. Accepts a function that receives the post as an argument.
+    *
+    * To reject a post, return an object containing an error such as
+    *     {error: {message: &#39;Rejected&#39;}}
+    * To modify or allow the post without modifcation, return an object containing the post
+    * such as
+    *     {post: {...}}
+    *
+    * If the hook function is asynchronous, the message will not be sent to the server
+    * until the hook returns.
+*/
+registerMessageWillBePostedHook(hook)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerSlashCommandWillBePostedHook">registerSlashCommandWillBePostedHook&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerSlashCommandWillBePostedHook"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a hook that will be called when a slash command is posted by the user before it
+    * is sent to the server. Accepts a function that receives the message (string) and the args
+    * (object) as arguments.
+    * The args object is:
+    *        {
+    *            channel_id: channelId,
+    *            team_id: teamId,
+    *            root_id: rootId,
+    *            parent_id: rootId,
+    *        }
+    *
+    * To reject a command, return an object containing an error:
+    *     {error: {message: &#39;Rejected&#39;}}
+    * To ignore a command, return an empty object (to prevent an error from being displayed):
+    *     {}
+    * To modify or allow the command without modification, return an object containing the new message
+    * and args. It is not likely that you will need to change the args, so return the object that was provided:
+    *     {message: {...}, args}
+    *
+    * If the hook function is asynchronous, the command will not be sent to the server
+    * until the hook returns.
+*/
+registerSlashCommandWillBePostedHook(hook)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerMessageWillFormatHook">registerMessageWillFormatHook&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerMessageWillFormatHook"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a hook that will be called before a message is formatted into Markdown.
+    * Accepts a function that receives the unmodified post and the message (potentially
+    * already modified by other hooks) as arguments. This function must return a string
+    * message that will be formatted.
+    * Returns a unique identifier.
+*/
+registerMessageWillFormatHook(hook)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerFilePreviewComponent">registerFilePreviewComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerFilePreviewComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component to override file previews. Accepts a function to run before file is
+    * previewed and a react component to be rendered as the file preview.
+    * - override - A function to check whether preview needs to be overridden. Receives fileInfo and post as arguments.
+    * Returns true is preview should be overridden and false otherwise.
+    * - component - A react component to display instead of original preview. Receives fileInfo and post as props.
+    * Returns a unique identifier.
+    * Only one plugin can override a file preview at a time. If two plugins try to override the same file preview, the first plugin will perform the override and the second will not. Plugin precedence is ordered alphabetically by plugin ID.
+*/
+registerFilePreviewComponent(override, component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerTranslations">registerTranslations&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerTranslations"></i></a> </h3>
+            <p>
+    <pre><code>/**
+*/
+registerTranslations(getTranslationsForLocale)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerAdminConsolePlugin">registerAdminConsolePlugin&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerAdminConsolePlugin"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a admin console definitions override function
+    * Note that this is a low-level interface primarily meant for internal use, and is not subject
+    * to semver guarantees. It may change in the future.
+    * Accepts the following:
+    * - func - A function that recieve the admin console config definitions and return a new
+    *          version of it, which is used for build the admin console.
+    * Each plugin can register at most one admin console plugin function, with newer registrations
+    * replacing older ones.
+*/
+registerAdminConsolePlugin(func)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerAdminConsoleCustomSetting">registerAdminConsoleCustomSetting&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerAdminConsoleCustomSetting"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a custom React component to manage the plugin configuration for the given setting key.
+    * Accepts the following:
+    * - key - A key specified in the settings_schema.settings block of the plugin&#39;s manifest.
+    * - component - A react component to render in place of the default handling.
+    * - options - Object for the following available options to display the setting:
+    *     showTitle - Optional boolean that if true the display_name of the setting will be rendered
+    * on the left column of the settings page and the registered component will be displayed on the
+    * available space in the right column.
+*/
+registerAdminConsoleCustomSetting(key, component, )</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="unregisterAdminConsolePlugin">unregisterAdminConsolePlugin&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#unregisterAdminConsolePlugin"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Unregister a previously registered admin console definition override function.
+    * Returns undefined.
+*/
+unregisterAdminConsolePlugin()</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerRightHandSidebarComponent">registerRightHandSidebarComponent&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerRightHandSidebarComponent"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a Right-Hand Sidebar component by providing a title for the right hand component.
+    * Accepts the following:
+    * - title - A string or JSX element to display as a title for the RHS.
+    * - component - A react component to display in the Right-Hand Sidebar.
+    * Returns:
+    * - id: a unique identifier
+    * - showRHSPlugin: the action to dispatch that will open the RHS.
+    * - hideRHSPlugin: the action to dispatch that will close the RHS
+    * - toggleRHSPlugin: the action to dispatch that will toggle the RHS
+*/
+registerRightHandSidebarComponent(component, title)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerNeedsTeamRoute">registerNeedsTeamRoute&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerNeedsTeamRoute"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a Needs Team component by providing a route past /:team/:pluginId/ to be displayed at.
+    * Accepts the following:
+    * - route - The route to be displayed at.
+    * - component - A react component to display.
+    * Returns:
+    * - id: a unique identifier
+*/
+registerNeedsTeamRoute(route, component)</code></pre>
+</p>
+        </div>
+    
+        <div>
+            <h5 id="registerCustomRoute">registerCustomRoute&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#registerCustomRoute"></i></a> </h3>
+            <p>
+    <pre><code>/**
+    * Register a component to be displayed at a custom route under /plug/:pluginId
+    * Accepts the following:
+    * - route - The route to be displayed at.
+    * - component - A react component to display.
+    * Returns:
+    * - id: a unique identifier
+*/
+registerCustomRoute(route, component)</code></pre>
+</p>
+        </div>
+    
+
+
+
+<h3 id="theme">Theme&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#theme"></i></a> </h3>
+<p>In Mattermost, users are able to set custom themes that change the color scheme of the UI. It&rsquo;s important that plugins have access to a user&rsquo;s theme so that they can set their styling to match and not look out of place.</p>
+<p>Every pluggable component in the web app will have the theme object as a prop.</p>
+<p>The colors are exposed via CSS variables as well.</p>
+<p>The theme object has the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>CSS Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sidebarBg</td>
+<td>&ndash;sidebar-bg</td>
+<td>Background color of the left-hand sidebar</td>
+</tr>
+<tr>
+<td>sidebarText</td>
+<td>&ndash;sidebar-text</td>
+<td>Color of text in the left-hand sidebar</td>
+</tr>
+<tr>
+<td>sidebarUnreadText</td>
+<td>&ndash;sidebar-unread-text</td>
+<td>Color of text for unread channels in the left-hand sidebar</td>
+</tr>
+<tr>
+<td>sidebarTextHoverBg</td>
+<td>&ndash;sidebar-text-hover-bg</td>
+<td>Background color of channels when hovered in the left-hand sidebar</td>
+</tr>
+<tr>
+<td>sidebarTextActiveBorder</td>
+<td>&ndash;sidebar-text-active-border</td>
+<td>Color of the selected indicator channel indicator in the left-hand siebar</td>
+</tr>
+<tr>
+<td>sidebarTextActiveColor</td>
+<td>&ndash;sidebar-text-active-color</td>
+<td>Color of the text for the selected channel in the left-hand sidebar</td>
+</tr>
+<tr>
+<td>sidebarHeaderBg</td>
+<td>&ndash;sidebar-header-bg</td>
+<td>Background color of the left-hand sidebar header</td>
+</tr>
+<tr>
+<td>sidebarHeaderTextColor</td>
+<td>&ndash;sidebar-header-text-color</td>
+<td>Color of text in the left-hand sidebar header</td>
+</tr>
+<tr>
+<td>onlineIndicator</td>
+<td>&ndash;online-indicator</td>
+<td>Color of the online status indicator</td>
+</tr>
+<tr>
+<td>awayIndicator</td>
+<td>&ndash;away-indicator</td>
+<td>Color of the away status indicator</td>
+</tr>
+<tr>
+<td>dndIndicator</td>
+<td>&ndash;dnd-indicator</td>
+<td>Color of the do not disturb status indicator</td>
+</tr>
+<tr>
+<td>mentionBg</td>
+<td>&ndash;mention-bg</td>
+<td>Background color for mention jewels in the left-hand sidebar</td>
+</tr>
+<tr>
+<td>mentionColor</td>
+<td>&ndash;mention-color</td>
+<td>Color of text for mention jewels in the left-hand sidebar</td>
+</tr>
+<tr>
+<td>centerChannelBg</td>
+<td>&ndash;center-channel-bg</td>
+<td>Background color of channels, right-hand sidebar and modals/popovers</td>
+</tr>
+<tr>
+<td>centerChannelColor</td>
+<td>&ndash;center-channel-color</td>
+<td>Color of text in channels, right-hand sidebar and modals/popovers</td>
+</tr>
+<tr>
+<td>newMessageSeparator</td>
+<td>&ndash;new-message-separator</td>
+<td>Color of the new message separator in channels</td>
+</tr>
+<tr>
+<td>linkColor</td>
+<td>&ndash;link-color</td>
+<td>Color of text for links</td>
+</tr>
+<tr>
+<td>buttonBg</td>
+<td>&ndash;button-bg</td>
+<td>Background color of buttons</td>
+</tr>
+<tr>
+<td>buttonColor</td>
+<td>&ndash;button-color</td>
+<td>Color of text for buttons</td>
+</tr>
+<tr>
+<td>errorTextColor</td>
+<td>&ndash;error-text</td>
+<td>Color of text for errors</td>
+</tr>
+<tr>
+<td>mentionHighlightBg</td>
+<td>&ndash;mention-highlight-bg</td>
+<td>Background color of mention highlights in posts</td>
+</tr>
+<tr>
+<td>mentionHighlightLink</td>
+<td>&ndash;mention-highlight-link</td>
+<td>Color of text for mention links in posts</td>
+</tr>
+<tr>
+<td>codeTheme</td>
+<td>NA</td>
+<td>Code block theme, either &lsquo;github&rsquo;, &lsquo;monokai&rsquo;, &lsquo;solarized-dark&rsquo; or &lsquo;solarized-light&rsquo;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="exported-libraries-and-functions">Exported Libraries and Functions&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#exported-libraries-and-functions"></i></a> </h2>
+<p>The web app exports a number of libraries and functions on the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window">window</a> object for plugins to use. To avoid bloating your plugin, we recommend depending on these using <a href="https://webpack.js.org/configuration/externals/">Webpack externals</a> or importing them manually from the window. Below is a list of the exposed libraries and functions:</p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th>Exported Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>react</td>
+<td>window.React</td>
+<td><a href="https://reactjs.org/">ReactJS</a></td>
+</tr>
+<tr>
+<td>react-dom</td>
+<td>window.ReactDOM</td>
+<td><a href="https://reactjs.org/docs/react-dom.html">ReactDOM</a></td>
+</tr>
+<tr>
+<td>redux</td>
+<td>window.Redux</td>
+<td><a href="https://redux.js.org/">Redux</a></td>
+</tr>
+<tr>
+<td>react-redux</td>
+<td>window.ReactRedux</td>
+<td><a href="https://github.com/reactjs/react-redux">React bindings for Redux</a></td>
+</tr>
+<tr>
+<td>react-bootstrap</td>
+<td>window.ReactBootstrap</td>
+<td><a href="https://react-bootstrap.github.io/">Bootstrap for React</a></td>
+</tr>
+<tr>
+<td>prop-types</td>
+<td>window.PropTypes</td>
+<td><a href="https://www.npmjs.com/package/prop-types">PropTypes</a></td>
+</tr>
+<tr>
+<td>post-utils</td>
+<td>window.PostUtils</td>
+<td>Mattermost post utility functions (see below)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="post-utils">post-utils&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#post-utils"></i></a> </h4>
+<p>Contains the following post utility functions:</p>
+<h5 id="formattexttext-options"><code>formatText(text, options)</code>&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#formattexttext-options"></i></a> </h5>
+<p>Performs formatting of text including Markdown, highlighting mentions and search terms and converting URLs, hashtags, @mentions and ~channels to links by taking a string and returning a string of formatted HTML.</p>
+<ul>
+<li><code>text</code> - String of text to format, e.g. a post&rsquo;s message.</li>
+<li><code>options</code> - (Optional) An object containing the following formatting options</li>
+<li><code>searchTerm</code> - If specified, this word is highlighted in the resulting HTML. Defaults to nothing.</li>
+<li><code>mentionHighlight</code> - Specifies whether or not to highlight mentions of the current user. Defaults to true.</li>
+<li><code>mentionKeys</code> - A list of mention keys for the current user to highlight.</li>
+<li><code>singleline</code> - Specifies whether or not to remove newlines. Defaults to false.</li>
+<li><code>emoticons</code> - Enables emoticon parsing with a data-emoticon attribute. Defaults to true.</li>
+<li><code>markdown</code> - Enables markdown parsing. Defaults to true.</li>
+<li><code>siteURL</code> - The origin of this Mattermost instance. If provided, links to channels and posts will be replaced with internal links that can be handled by a special click handler.</li>
+<li><code>atMentions</code> - Whether or not to render &ldquo;@&rdquo; mentions into spans with a data-mention attribute. Defaults to false.</li>
+<li><code>channelNamesMap</code> - An object mapping channel display names to channels. If provided, ~channel mentions will be replaced with links to the relevant channel.</li>
+<li><code>team</code> - The current team object.</li>
+<li><code>proxyImages</code> - If specified, images are proxied. Defaults to false.</li>
+</ul>
+<h5 id="messagehtmltocomponenthtml-isrhs-options"><code>messageHtmlToComponent(html, isRHS, options)</code>&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#messagehtmltocomponenthtml-isrhs-options"></i></a> </h5>
+<p>Converts HTML to React components.</p>
+<ul>
+<li><code>html</code> - String of HTML to convert to React components.</li>
+<li><code>isRHS</code> - Boolean indicating if the resulting components are to be displayed in the right-hand sidebar. Has some minor effects on how UI events are triggered for components in the RHS.</li>
+<li><code>options</code> - (Optional) An object containing options</li>
+<li><code>mentions</code> - If set, mentions are replaced with the AtMention component. Defaults to true.</li>
+<li><code>emoji</code> - If set, emoji text is replaced with the PostEmoji component. Defaults to true.</li>
+<li><code>images</code> - If set, markdown images are replaced with the PostMarkdown component. Defaults to true.</li>
+<li><code>latex</code> - If set, latex is replaced with the LatexBlock component. Defaults to true.</li>
+</ul>
+<h5 id="usage-example">Usage Example&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#usage-example"></i></a> </h5>
+<p>A short usage example of a <code>PostType</code> component using the post utility functions to format text.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#069;font-weight:bold">import</span> React from <span style="color:#c30">&#39;react&#39;</span>; <span style="color:#09f;font-style:italic">// accessed through webpack externals
+</span><span style="color:#09f;font-style:italic"></span><span style="color:#069;font-weight:bold">import</span> PropTypes from <span style="color:#c30">&#39;prop-types&#39;</span>;
+<span style="color:#069;font-weight:bold">import</span> {makeStyleFromTheme} from <span style="color:#c30">&#39;mattermost-redux/utils/theme_utils&#39;</span>;
+<span style="color:#069;font-weight:bold">const</span> PostUtils <span style="color:#555">=</span> <span style="color:#366">window</span>.PostUtils; <span style="color:#09f;font-style:italic">// must be accessed through `window`
+</span><span style="color:#09f;font-style:italic"></span>
+<span style="color:#069;font-weight:bold">export</span> <span style="color:#069;font-weight:bold">default</span> <span style="color:#069;font-weight:bold">class</span> PostTypeFormatted <span style="color:#069;font-weight:bold">extends</span> React.PureComponent {
+
+    <span style="color:#09f;font-style:italic">// ...
+</span><span style="color:#09f;font-style:italic"></span>
+    render() {
+        <span style="color:#069;font-weight:bold">const</span> style <span style="color:#555">=</span> getStyle(<span style="color:#069;font-weight:bold">this</span>.props.theme);
+        <span style="color:#069;font-weight:bold">const</span> post <span style="color:#555">=</span> <span style="color:#069;font-weight:bold">this</span>.props.post;
+
+        <span style="color:#069;font-weight:bold">const</span> formattedText <span style="color:#555">=</span> PostUtils.formatText(post.message); <span style="color:#09f;font-style:italic">// format the text
+</span><span style="color:#09f;font-style:italic"></span>
+        <span style="color:#069;font-weight:bold">return</span> (
+            <span style="color:#555">&lt;</span>div
+                style<span style="color:#555">=</span>{style.container}
+            <span style="color:#555">&gt;</span>
+                {<span style="color:#c30">&#39;Formatted text: &#39;</span>}
+                {PostUtils.messageHtmlToComponent(formattedText)} <span style="color:#09f;font-style:italic">// convert the html to components
+</span><span style="color:#09f;font-style:italic"></span>            <span style="color:#555">&lt;</span><span style="color:#a00;background-color:#faa">/div&gt;</span>
+        );
+    }
+}
+</code></pre></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+    <div class="container-fluid">
+        <div class="footer__copyright">© Mattermost, Inc. All Rights Reserved.</div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/Mattermost-2300985916642531/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/mattermost"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCNR05H72hi692y01bWaFXNA"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

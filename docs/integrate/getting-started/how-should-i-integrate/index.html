@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> How Should I Integrate?</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../../integrate/getting-started/how-should-i-integrate/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../css/tabs.css">
+<link rel="stylesheet" href="../../../css/bar.css">
+<link rel="stylesheet" href="../../../css/styles.css">
+<link rel="stylesheet" href="../../../css/code.css">
+<link rel="stylesheet" href="../../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../js/tabs.js"></script>
+<script src="../../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+    </head>
+<body>
+    <header>
+    <a href="../../../"><img src="../../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li><a href="../../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+    <div class="sidebar__menu-toggle">
+        How Should I Integrate?
+        <i class="fa fa-bars pull-right"></i>
+    </div>
+    <div class="row sidebar__links">
+        
+            
+                
+                
+
+                
+                
+                    
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../integrate/getting-started/"> Getting Started</a>
+                    
+                </span>
+                <ul class="sub-menu" style="display: block">
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a class="active" href="../../../integrate/getting-started/how-should-i-integrate/"> How Should I Integrate?</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../integrate/incoming-webhooks/"> Incoming Webhooks</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../integrate/outgoing-webhooks/"> Outgoing Webhooks</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../integrate/slash-commands/"> Slash Commands</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../integrate/rest-api/"> API Reference</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../integrate/examples/"> Examples</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+        
+    </div>
+</div>
+
+                <div class="col-lg-9 doc-content">
+                    
+<a href="https://github.com/mattermost/mattermost-developer-documentation/edit/master/site/content/integrate/getting-started/how-should-i-integrate.md" class="float-right edit-github">
+    Edit on GitHub
+</a>
+
+
+                    <h1 class="mt-0 doc-title">
+                        How Should I Integrate?
+                    </h1>
+                    <p>Very good question! Mattermost has many different integration points and this page will help you pick the right one(s) for the job.</p>
+<h3 id="i-just-want-to-post-into-mattermost">I just want to post into Mattermost&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#i-just-want-to-post-into-mattermost"></i></a> </h3>
+<p>If you only want to post messages into a Mattermost channel, then all you need is an <a href="../../../integrate/incoming-webhooks">incoming webhook</a>.</p>
+<h3 id="i-want-to-know-when-someone-says-something">I want to know when someone says something&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#i-want-to-know-when-someone-says-something"></i></a> </h3>
+<p>Tracking what gets posted into a channel and receiving real-time events about it can be done using <a href="../../../integrate/outgoing-webhooks">outgoing webhooks</a>. You can also respond to messages with outgoing webhooks.</p>
+<h3 id="i-want-user-interaction">I want user interaction&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#i-want-user-interaction"></i></a> </h3>
+<p>If you want your users to be able to trigger actions from within Mattermost, adding your own custom <a href="../../../integrate/slash-commands">slash command</a> will do the trick.</p>
+<p>That&rsquo;s not enough? You can include <a target="_blank" href="https://docs.mattermost.com/developer/interactive-messages.html">interactive messages</a> in posts from your slash commands, as well as from incoming and outgoing webhooks.</p>
+<h3 id="i-want-to-build-an-advanced-bot">I want to build an advanced bot&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#i-want-to-build-an-advanced-bot"></i></a> </h3>
+<p>To build a richer bot integration, you can make full use of the <a href="../../../integrate/rest-api">Mattermost REST API</a>. Everything that you see a Mattermost client doing, your integration can do too with this API.</p>
+<h3 id="one-of-these-alone-isnt-enough">One of these alone isn&rsquo;t enough&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#one-of-these-alone-isnt-enough"></i></a> </h3>
+<p>Good news! You can mix and match as many of these integration points you like to suit your needs. The choice is yours.</p>
+<h3 id="i-still-need-more">I still need more&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#i-still-need-more"></i></a> </h3>
+<p>If these integration points aren&rsquo;t enough for what you had in mind, then take a look at <a href="../../../extend/plugins/">plugins</a>. They are very powerful and offer the ability to extend Mattermost in ways that integrations can&rsquo;t.</p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+    <div class="container-fluid">
+        <div class="footer__copyright">© Mattermost, Inc. All Rights Reserved.</div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/Mattermost-2300985916642531/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/mattermost"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCNR05H72hi692y01bWaFXNA"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

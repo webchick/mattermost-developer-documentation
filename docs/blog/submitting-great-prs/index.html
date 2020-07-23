@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Submitting Great PRs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../blog/submitting-great-prs/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/tabs.css">
+<link rel="stylesheet" href="../../css/bar.css">
+<link rel="stylesheet" href="../../css/styles.css">
+<link rel="stylesheet" href="../../css/code.css">
+<link rel="stylesheet" href="../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../js/tabs.js"></script>
+<script src="../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+</head>
+
+<body class="blog-single">
+    <header>
+    <a href="../../"><img src="../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li><a href="../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 doc-content">
+                <div class="well well-sm">
+                    <div class="blog-item__header">
+                        <div class="blog-item__title">Submitting Great PRs<br> <small></small></div>
+                        <div class="blog-item__info">
+                            January 24, 2019
+                            <small class="blog-item__count">935 words</small>
+                        </div>
+                    </div>
+                    <hr>
+                    <p>If you want to submit good pull requests, start with our <a href="https://developers.mattermost.com/contribute/getting-started/contribution-checklist/">contribution checklist</a>. Today, that page talks about what to fork, how to style your code, how to write unit tests and where to push your code. Implicit in all of that is the need to write great code, of course!</p>
+<p>But this blog post isn&rsquo;t about writing great code, it&rsquo;s about making your pull request a great experience for you and your reviewers.</p>
+<p>I still remember my first pull request a few days into my first software engineering internship. Without even looking at my code, my mentor sat me down and said something like this, &ldquo;Jesse, before you ask anyone else to review your code, I want you to review it yourself.&rdquo; He asked me to read through my code and make comments just like a real reviewer, and then we would review the remainder together.</p>
+<p>I am forever grateful to my mentor for shaping my thinking about reviewing code. Having given more than a few reviews since then, let me share some advice starting with what my mentor taught me:</p>
+<h3 id="1-review-your-own-code-first">1) Review your own code first.&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#1-review-your-own-code-first"></i></a> </h3>
+<p>Be the one to catch styling issues. Be the one to ask, &ldquo;Does this variable name make any sense?&rdquo; Be the one to identify problem areas and points of confusion. Be the first reviewer.</p>
+<p>Now, not everything deserves to be fixed in every pull request. Fixing a one-line bug isn&rsquo;t usually the time to fix an unrelated variable naming issue that touches multiple files. This leads to my second point:</p>
+<h3 id="2-give-a-great-description">2) Give a great description.&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#2-give-a-great-description"></i></a> </h3>
+<p>The description on a pull request is your chance to prove to a reviewer that you have the credentials to fix this problem. How? State the problem in your own words:</p>
+<blockquote>
+<p>This pull request adds new functionality to expose &hellip;</p>
+</blockquote>
+<p>Tell the reviewer why we need to do this:</p>
+<blockquote>
+<p>With this new functionality, we can fix a longstanding customer issue that &hellip;</p>
+</blockquote>
+<p>You don&rsquo;t need to outline everything your code is doing &ndash; that&rsquo;s why the code is there &ndash; but this is also your opportunity to point the reviewer in the right direction:</p>
+<blockquote>
+<p>The trickiest part of this pull request was the <code>SqlStore</code> changes, because &hellip;</p>
+</blockquote>
+<p>and also:</p>
+<blockquote>
+<p>I really wanted to fix the variable names in this file, but it&rsquo;s out of scope for this pull request.</p>
+</blockquote>
+<p>Of course, sometimes you have to fix something else before you can get to the issue at hand. Maybe you decide to fix that variable name problem because it clarifies the feature you&rsquo;re adding. On to my third point:</p>
+<h3 id="3-clean-up-your-history">3) Clean up your history.&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#3-clean-up-your-history"></i></a> </h3>
+<p>Everyone has their own development style. Mine usually consists of coding a small part of the overall problem, typing:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git commit -m wip
+</code></pre></div><p>and repeating this process often. Commit early and commit often! It&rsquo;s just easier to undo changes this way while you&rsquo;re actively developing.</p>
+<p>But a reviewer doesn&rsquo;t need to see that commit history. As a reviewer myself, I&rsquo;d want to see one of two things. Either:</p>
+<ol>
+<li>
+<p>A single squashed commit with all of your changes.</p>
+</li>
+<li>
+<p>Multiple commits breaking up your changes into logical groupings.</p>
+</li>
+</ol>
+<p>Put that variable name fix in its own commit, commit your feature change on top of it, and add a note to your PR&rsquo;s description. Your reviewers can then use the commits tab in GitHub to review those changes independently.</p>
+<p>Maybe you&rsquo;re the kind of developer that writes a pristine commit history the first time, but most of us rely on <code>git rebase</code>. If you aren&rsquo;t familiar with rebasing, it might seem terrifying or magical, but it doesn&rsquo;t need to be: play with it, master it, and use it often. If you need help getting started here, check out Atlassian&rsquo;s excellent <a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase">tutorial on git rebase</a>.</p>
+<p>Keep in mind though that rebasing is something to do before you submit your pull request, not after, and this leads to my last point:</p>
+<h3 id="4-avoid-force-pushing">4) Avoid Force Pushing&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#4-avoid-force-pushing"></i></a> </h3>
+<p>Good git etiquette is to avoid force pushing any branch someone else is actively using or reviewing. A pull request is a branch just like any other, so once you&rsquo;ve started that pull request, everything that you push upstream should just be a regular or merge commit. In particular, when merge conflicts arise with <code>master</code>, just:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git fetch <span style="color:#555">&amp;&amp;</span> git merge origin/master
+</code></pre></div><p>Resolve the conflicts and push up the resulting merge commit. Resist the urge to rebase anything you&rsquo;ve already pushed to the pull request.</p>
+<p>Why? When you rebase, you are effectively replaying a commit history on top of another commit. But in a pull request, a reviewer wants to see a linear history of your changes from when they started reviewing. Any merge conflicts resolved during the rebase operation are &ldquo;hidden&rdquo; inside the original commits instead of appearing as a new commit. A diligent reviewer must then start from the beginning instead of just examining the latest changes. Exacerbating all of this is that GitHub tends to lose or detach comment threads across a rebase, making it difficult to regain context from an earlier discussion.</p>
+<p>Note that other open source projects may merge your commit history instead of squashing it as we do here at Mattermost. Always check with the project maintainers for best practices regarding pull requests.</p>
+<p>I hope these four points are useful! Keep in mind, too, that you don&rsquo;t have to be a core committer with Mattermost to review someone else&rsquo;s code. If there&rsquo;s a pull request that interests you and you have some useful context to share, jump in and give a review, and I think you&rsquo;ll appreciate some of these points even better.</p>
+
+
+                    <hr>
+                    
+                    Written by
+                    
+                    Jesse Hallam
+-
+<a href="https://community.mattermost.com/core/messages/@jesse.hallam" target="_blank">
+    @jesse.hallam
+</a>
+on
+<a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676" target="_blank">
+    community.mattermost.com
+</a>
+and
+<a href="https://github.com/lieut-data" target="_blank">
+    @lieut-data
+</a>
+on GitHub
+
+                    
+                    
+                    <br />
+                    <br />
+                    Join us on <a href="https://community.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676"
+                        target="_blank">community.mattermost.com</a>!
+                </div>
+            </div>
+
+            
+            <div class="col-md-3 doc-content tags-sidebar">
+                <div class="well well-sm">
+                    
+                    
+
+
+                    <h6>Other Posts</h6>
+                    <ul class="list-unstyled">
+                        
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/pritunl/">From OpenVPN to Pritunl VPN: The transition</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/open-tracing/">OpenTracing for Go Projects</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/hands-on-iouring-go/">Getting Hands-on with io_uring using Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/advanced-git-tbilisi-free-university/">Advanced Git with the Free University of Tbilisi</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/all-about-emojis/">All About Emojis</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/maintaining-consistency-in-codebases-with-go-vet/">Maintaining Consistency in Codebases with Go vet</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/instrumenting-go-code-via-ast-2/">Instrumenting Go code via AST, Part 2</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/layered-store-and-struct-embedding/">Layered Store and Struct Embedding in Go</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/incorporating-golangci-lint/">Incorporating GolangCI-Lint at Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/on-hermes-and-mattermost/">On Hermes and Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/onboarding-with-mattermost/">Onboarding with Mattermost</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/kubecon-na-2019/">KubeCon NA 2019</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/cloud-monitoring/">Monitoring a Multi-Cluster Environment Using Prometheus Federation and Grafana</a></li>
+                        
+                        
+                        
+                        <li class="blog-item__sidebar">- <a href="../../blog/localizing-matterpoll/">Localizing Matterpoll</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

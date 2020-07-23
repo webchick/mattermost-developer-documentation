@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Developer Setup</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../../contribute/desktop/developer-setup/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../css/tabs.css">
+<link rel="stylesheet" href="../../../css/bar.css">
+<link rel="stylesheet" href="../../../css/styles.css">
+<link rel="stylesheet" href="../../../css/code.css">
+<link rel="stylesheet" href="../../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../js/tabs.js"></script>
+<script src="../../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+    </head>
+<body>
+    <header>
+    <a href="../../../"><img src="../../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+    <div class="sidebar__menu-toggle">
+        Developer Setup
+        <i class="fa fa-bars pull-right"></i>
+    </div>
+    <div class="row sidebar__links">
+        
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../contribute/getting-started/"> Getting Started</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/contributions-without-ticket/"> Contributions Without Ticket</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/contribution-checklist/"> Contribution Checklist</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/inactive-contributions/"> Inactive Contributions</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/core-committers/"> Core Committers</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/code-review/"> Code Review</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/labels/"> Labels</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/branching/"> Mattermost tick-tock Branching Strategy</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/getting-started/slash-commands/"> Slash Commands</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../contribute/server/"> Server</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a class="active" href="../../../contribute/server/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-workflow/"> Server Workflow</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/rest-api/"> REST API</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/system_console/"> System Console</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/dependencies/"> Dependencies</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/cli-commands/"> CLI Commands</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/plugins/"> Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/tooling/"> Tooling</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-setup/arch/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-setup/centos/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-setup/osx/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-setup/ubuntu/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-setup/windows-wsl/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/server/developer-setup/windows/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../contribute/webapp/"> Web App</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a class="active" href="../../../contribute/webapp/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/developer-workflow/"> Web App Workflow</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/build-component/"> Build a Component</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/unit-testing/"> Unit Testing</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/end-to-end-tests/"> End-to-End Testing</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/using-i18n-extract/"> Using make i18n-extract</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/webapp-to-redux/"> Migrating to Redux</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/webapp/migrating-to-typescript/"> Migrating to Typescript</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../contribute/mobile/"> Mobile Apps</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a class="active" href="../../../contribute/mobile/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                                <a class="item " href="../../../contribute/mobile/developer-setup/developer-workflow/">Mobile Apps Workflow</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/developer-setup/makefile/">Makefile Commands</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/developer-setup/run-on-device/">Run on a Device</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/developer-setup/troubleshooting/">Troubleshooting</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../contribute/mobile/build-your-own/"> Build Your Own App</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../contribute/mobile/build-your-own/preparation/">Build Preparations</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/build-your-own/environment-vars/">Environment Variables</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/build-your-own/assets-white-label/">Assets &amp; White Labeling</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/build-your-own/android/">Build the Android App</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/build-your-own/ios/">Build the iOS App</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../contribute/mobile/push-notifications/"> Setup Push Notifications</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../contribute/mobile/push-notifications/android/">Android Push Notifications</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/push-notifications/ios/">iOS Push Notifications</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/push-notifications/service/">Push Notification Service</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/push-notifications/corporate-proxy/">Push Notification Service with Corporate Proxy</a>
+                            
+                                <a class="item " href="../../../contribute/mobile/push-notifications/migrate-gcm-fcm/">Migrate GCM to FCM</a>
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../contribute/redux/"> Redux</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a class="active" href="../../../contribute/redux/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/redux/developer-workflow/"> Redux Workflow</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/redux/actions/"> Actions</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/redux/reducers/"> Reducers</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/redux/selectors/"> Selectors</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/redux/react-redux/"> Using Redux with React</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+                    
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../contribute/desktop/"> Desktop App</a>
+                    
+                </span>
+                <ul class="sub-menu" style="display: block">
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a class="active" href="../../../contribute/desktop/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/desktop/debugging/"> Debugging</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../contribute/desktop/code-signing/"> Code Signing</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../contribute/devtalks/"> Mattermost Dev Talks</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../contribute/containers/"> Containers</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../contribute/team_contributions/"> Contributor Wall of Fame</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../contribute/mvp/"> MVP</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+        
+    </div>
+</div>
+
+                <div class="col-lg-9 doc-content">
+                    
+<a href="https://github.com/mattermost/mattermost-developer-documentation/edit/master/site/content/contribute/desktop/developer-setup.md" class="float-right edit-github">
+    Edit on GitHub
+</a>
+
+
+                    <h1 class="mt-0 doc-title">
+                        Developer Setup
+                    </h1>
+                    <h2 id="prerequisites">Prerequisites&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#prerequisites"></i></a> </h2>
+<ul>
+<li>C++ environment which supports C++11 (e.g. VS 2015, Xcode, GCC)</li>
+<li>Python 2.7</li>
+<li>Node.js 8 or later</li>
+<li>NPM</li>
+<li>Git</li>
+<li>Windows Build Tools or Visual Studio Community edition (see Known Problems section).</li>
+<li>Recommended: <a href="https://chocolatey.org/">Chocolatey</a> which we will use to install other dependencies.</li>
+</ul>
+<h3 id="windows">Windows&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#windows"></i></a> </h3>
+<p>The recommended way to install the required components on Windows is to install the Chocolatey package manager.
+Once it&rsquo;s installed, run the following commands in the PowerShell console as <code>administrator</code>.</p>
+<pre><code>choco install nvm
+</code></pre><pre><code>choco install git
+</code></pre><p>If you&rsquo;re using PowerShell without privileged access, run:</p>
+<pre><code>nvm install 10.18.1
+</code></pre><h2 id="installing-dependencies">Installing Dependencies&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#installing-dependencies"></i></a> </h2>
+<p>When installation is complete, dependencies of the <code>src/</code> directory are also installed.</p>
+<h3 id="osx--linux">OSX &amp; Linux&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#osx--linux"></i></a> </h3>
+<pre><code>$ npm install
+</code></pre><h3 id="windows-1">Windows&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#windows-1"></i></a> </h3>
+<p>Run the following command in the PowerShell console as <code>administrator</code>.</p>
+<pre><code>&gt; .\scripts\Makefile.ps1 Install-Deps
+</code></pre><h4 id="known-problems">Known Problems&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#known-problems"></i></a> </h4>
+<h5 id="policy">Policy&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#policy"></i></a> </h5>
+<p>If the above command fails, it might be due to not having the right policy to install. You can temporarily change the policy using:</p>
+<pre><code>&gt; Set-ExecutionPolicy Bypass -Scope Process -Force;
+</code></pre><h5 id="pngquant-bin">pngquant-bin&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#pngquant-bin"></i></a> </h5>
+<p>On Windows there is no default <code>libpng-dev</code> available. There are two options for getting it to build:</p>
+<ul>
+<li>Install Windows Build Tools: <code>npm install windows-build-tools</code></li>
+<li>Install Visual Studio Community</li>
+</ul>
+<p>Either option provides the dependencies required to build the package. After one of the two options are installed, install <code>npm install libpng-dev</code> manually.</p>
+<h2 id="building">Building&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#building"></i></a> </h2>
+<p>Build JavaScript codes with <code>webpack</code>.</p>
+<pre><code>$ npm run build
+</code></pre><p>After building is done, you can execute the application with <code>npm start</code>.</p>
+<h2 id="packaging">Packaging&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#packaging"></i></a> </h2>
+<p>Package specific files of <code>src/</code> directory as distributable formats with <a href="https://github.com/electron-userland/electron-builder"><code>electron-builder</code></a>.
+Files are defined in <code>electron-builder.json</code>.
+Packages will be generated into <code>release/</code> directory.</p>
+<h3 id="macos-and-linux">macOS and Linux&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#macos-and-linux"></i></a> </h3>
+<pre><code>$ npm run package:&lt;all | mac | linux&gt;
+</code></pre><h3 id="windows-2">Windows&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#windows-2"></i></a> </h3>
+<pre><code>&gt; .\scripts\Windows.ps1
+</code></pre><h3 id="dependencies">Dependencies&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#dependencies"></i></a> </h3>
+<p>Need to install some software required by <code>electron-builder</code> to build packages.
+Please see <a href="https://www.electron.build/multi-platform-build">electron-builder wiki</a> for detailed description.</p>
+<ul>
+<li>Windows: Nothing.</li>
+<li>macOS: <code>brew install gnu-tar</code></li>
+<li>Linux (64 bit): <code>icnsutils</code>, <code>graphicsmagick</code> and <code>xz-utils</code> if Ubuntu is used.</li>
+</ul>
+<h3 id="code-signing">Code signing&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#code-signing"></i></a> </h3>
+<p>Set environment variables to build trusted packages.
+Please see <a href="https://www.electron.build/code-signing">electron-builder wiki</a> for detailed description.</p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CSC_LINK</code></td>
+<td>The HTTPS link (or base64-encoded data, or <code>file://</code> link) to certificate (<code>*.p12</code> or <code>*.pfx</code> file).</td>
+</tr>
+<tr>
+<td><code>CSC_KEY_PASSWORD</code></td>
+<td>The password to decrypt the certificate given in <code>CSC_LINK</code>.</td>
+</tr>
+<tr>
+<td><code>CSC_NAME</code></td>
+<td><em>macOS-only</em> Name of certificate (to retrieve from login.keychain). Useful on a development machine (not on CI) if you have several identities (otherwise don&rsquo;t specify it).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tests">Tests&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#tests"></i></a> </h2>
+<p>Execute automated tests.</p>
+<pre><code>$ npm test
+</code></pre><p>There are two steps in <code>npm test</code>.</p>
+<p>Test functionality:</p>
+<pre><code>$ npm run test:app
+</code></pre><p>Test coding style:</p>
+<pre><code>$ npm run lint:js
+</code></pre><h2 id="helper-commands">Helper commands&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#helper-commands"></i></a> </h2>
+<h3 id="npm-run-watch"><code>npm run watch</code>&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#npm-run-watch"></i></a> </h3>
+<p>Reload the application automatically when you have saved source codes.
+When using this mode, you can use &ldquo;React Developer Tools&rdquo; in the Developer Tools window.</p>
+<h2 id="directory-structure">Directory Structure&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#directory-structure"></i></a> </h2>
+<pre><code>Mattermost Desktop
+├── docs/ - Documentations.
+├── resources/ - Resources which are used outside of the application codes, and original images of assets.
+├── scripts/ - Helper scripts.
+├── src/ - Application source code.
+│   ├── assets/ - Assets which are loaded from the application codes.
+│   ├── browser/ - Implementation of Electron's renderer process.
+│   │   ├── components/ - React.js components.
+│   │   ├── css/ - Stylesheets.
+│   │   ├── js/ - Helper JavaScript modules.
+│   │   └── webview/ - Injection code for Electron's &lt;webview&gt; tag.
+│   ├── common/ - Common JavaScript modules for both Electron's processes.
+│   └── main/ - Implementation of Electron's main process.
+│       └── menus/ - Application menu.
+└── test/ - Automated tests.
+    ├── modules/ - Scripts which are commonly used in tests.
+    └── specs/ - Test scripts.
+</code></pre><h3 id="other-directories">Other directories&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#other-directories"></i></a> </h3>
+<ul>
+<li><code>node_modules/</code> - Third party Node.js modules to develop and build the application.</li>
+<li><code>release/</code> - Packaged distributable applications.</li>
+<li><code>src/node_modules/</code> - Third party Node.js modules to use in the application.</li>
+</ul>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+    <div class="container-fluid">
+        <div class="footer__copyright">© Mattermost, Inc. All Rights Reserved.</div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/Mattermost-2300985916642531/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/mattermost"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCNR05H72hi692y01bWaFXNA"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

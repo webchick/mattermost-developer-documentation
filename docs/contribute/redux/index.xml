@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redux on Mattermost Developers</title>
+    <link>/contribute/redux/</link>
+    <description>Recent content in Redux on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Jan 2018 12:01:23 -0400</lastBuildDate>
+    
+	<atom:link href="/contribute/redux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Developer Setup</title>
+      <link>/contribute/redux/developer-setup/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/redux/developer-setup/</guid>
+      <description>Prerequisites  Git  Setup   Install Node.js and npm.
+  Fork the repository at https://github.com/mattermost/mattermost-redux.
+  Clone your fork using the following command. If you have the mattermost-webapp environment set up or are planning on setting it up, you would typically clone your copy to $GOHOME/src/github.com/mattermost/mattermost-redux.
+git clone https://github.com/&amp;lt;yourgithubusername&amp;gt;mattermost-redux   Run the tests to confirm everything is installed correctly. Doing this will also use npm to install any other required dependencies.</description>
+    </item>
+    
+    <item>
+      <title>Redux Workflow</title>
+      <link>/contribute/redux/developer-workflow/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/redux/developer-workflow/</guid>
+      <description>Project Structure If you look at the Mattermost Redux repository, you&amp;rsquo;ll see the following folders:
+ src contains all source code that is compiled and shipped with the library.  src/actions contains the Redux actions used by the library. Most of the logic that uses the stored data and contacts the server is located here. src/client contains the JavaScript drivers to communicate with the Mattermost server. If you&amp;rsquo;re not wanting to use all of the logic from this library but are instead building your own, this code will be the most useful for you.</description>
+    </item>
+    
+    <item>
+      <title>Actions</title>
+      <link>/contribute/redux/actions/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/redux/actions/</guid>
+      <description>Similar to other frameworks like Flux, actions in Redux represent a single change to the Redux store as a plain JavaScript object.
+{ type: &amp;#39;SELECT_CHANNEL&amp;#39;, data: channelId } They are created by functions called action creators. In regular Redux, this function will take some arguments and return an action representing how the store should be changed. Something to note with Mattermost Redux is that we typically refer to the action creators as the &amp;ldquo;actions&amp;rdquo; themselves since there&amp;rsquo;s often a single action creator for a given type of action.</description>
+    </item>
+    
+    <item>
+      <title>Reducers</title>
+      <link>/contribute/redux/reducers/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/redux/reducers/</guid>
+      <description>Reducers in Redux are pure functions that describe how the data in the store changes after any given action. A reducer receives the previous state of the store and an action as a JavaScript object (see here for more information on actions) and should output the resulting state without receiving any outside data. Because reducers are pure, they will always produce the same resulting state for a given state and action.</description>
+    </item>
+    
+    <item>
+      <title>Selectors</title>
+      <link>/contribute/redux/selectors/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/redux/selectors/</guid>
+      <description>Selectors are functions used to compute data from the data in the Redux stores. This is done using Reselect, a library designed to do this efficiently by memoizing any results so that they are only recalculated if relevant parts of the store change. The code for this is in the src/selectors folder of the Mattermost Redux repository.
+For more information about reselect and how we use it at Mattermost, check out this developer talk given by core developer Harrison Healey.</description>
+    </item>
+    
+    <item>
+      <title>Using Redux with React</title>
+      <link>/contribute/redux/react-redux/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/redux/react-redux/</guid>
+      <description>Using Redux with React is fairly straightforward thanks to the React Redux library. It provides the connect function to create higher order components that have access to the Redux store to set their props.
+A typical Redux-connected component will be in its own folder with two files: index.jsx containing the code to connect to the Redux store and the file where the component is actually implemented. This helps to keep the Redux logic separate from the rendering for the component which keeps it more easily readable and makes it easier to test since it can be done without the whole Redux store.</description>
+    </item>
+    
+  </channel>
+</rss>

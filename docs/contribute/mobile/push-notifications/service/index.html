@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Push Notification Service</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../../../contribute/mobile/push-notifications/service/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../css/tabs.css">
+<link rel="stylesheet" href="../../../../css/bar.css">
+<link rel="stylesheet" href="../../../../css/styles.css">
+<link rel="stylesheet" href="../../../../css/code.css">
+<link rel="stylesheet" href="../../../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../../js/tabs.js"></script>
+<script src="../../../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+    </head>
+<body>
+    <header>
+    <a href="../../../../"><img src="../../../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+    <div class="sidebar__menu-toggle">
+        Push Notification Service
+        <i class="fa fa-bars pull-right"></i>
+    </div>
+    <div class="row sidebar__links">
+        
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../contribute/getting-started/"> Getting Started</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/contributions-without-ticket/"> Contributions Without Ticket</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/contribution-checklist/"> Contribution Checklist</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/inactive-contributions/"> Inactive Contributions</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/core-committers/"> Core Committers</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/code-review/"> Code Review</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/labels/"> Labels</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/branching/"> Mattermost tick-tock Branching Strategy</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/getting-started/slash-commands/"> Slash Commands</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../contribute/server/"> Server</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-workflow/"> Server Workflow</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/rest-api/"> REST API</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/system_console/"> System Console</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/dependencies/"> Dependencies</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/cli-commands/"> CLI Commands</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/plugins/"> Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/tooling/"> Tooling</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/arch/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/centos/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/osx/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/ubuntu/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/windows-wsl/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/server/developer-setup/windows/"> </a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../contribute/webapp/"> Web App</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/developer-workflow/"> Web App Workflow</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/build-component/"> Build a Component</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/unit-testing/"> Unit Testing</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/end-to-end-tests/"> End-to-End Testing</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/using-i18n-extract/"> Using make i18n-extract</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/webapp-to-redux/"> Migrating to Redux</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/webapp/migrating-to-typescript/"> Migrating to Typescript</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+                    
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../contribute/mobile/"> Mobile Apps</a>
+                    
+                </span>
+                <ul class="sub-menu" style="display: block">
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../../contribute/mobile/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../../contribute/mobile/developer-setup/developer-workflow/">Mobile Apps Workflow</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/developer-setup/makefile/">Makefile Commands</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/developer-setup/run-on-device/">Run on a Device</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/developer-setup/troubleshooting/">Troubleshooting</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../../contribute/mobile/build-your-own/"> Build Your Own App</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../../contribute/mobile/build-your-own/preparation/">Build Preparations</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/build-your-own/environment-vars/">Environment Variables</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/build-your-own/assets-white-label/">Assets &amp; White Labeling</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/build-your-own/android/">Build the Android App</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/build-your-own/ios/">Build the iOS App</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../../contribute/mobile/push-notifications/"> Setup Push Notifications</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                                <a class="item " href="../../../../contribute/mobile/push-notifications/android/">Android Push Notifications</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/push-notifications/ios/">iOS Push Notifications</a>
+                            
+                                <a class="item active" href="../../../../contribute/mobile/push-notifications/service/">Push Notification Service</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/push-notifications/corporate-proxy/">Push Notification Service with Corporate Proxy</a>
+                            
+                                <a class="item " href="../../../../contribute/mobile/push-notifications/migrate-gcm-fcm/">Migrate GCM to FCM</a>
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../contribute/redux/"> Redux</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/redux/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/redux/developer-workflow/"> Redux Workflow</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/redux/actions/"> Actions</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/redux/reducers/"> Reducers</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/redux/selectors/"> Selectors</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/redux/react-redux/"> Using Redux with React</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../../contribute/desktop/"> Desktop App</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/desktop/developer-setup/"> Developer Setup</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/desktop/debugging/"> Debugging</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../../contribute/desktop/code-signing/"> Code Signing</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../../contribute/devtalks/"> Mattermost Dev Talks</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../../contribute/containers/"> Containers</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../../contribute/team_contributions/"> Contributor Wall of Fame</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../../contribute/mvp/"> MVP</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+        
+    </div>
+</div>
+
+                <div class="col-lg-9 doc-content">
+                    
+<a href="https://github.com/mattermost/mattermost-developer-documentation/edit/master/site/content/contribute/mobile/push-notifications/service.md" class="float-right edit-github">
+    Edit on GitHub
+</a>
+
+
+                    <h1 class="mt-0 doc-title">
+                        Push Notification Service
+                    </h1>
+                    <h3 id="install-the-mattermost-push-notification-service">Install the Mattermost Push Notification Service&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#install-the-mattermost-push-notification-service"></i></a> </h3>
+<p>Now that the app can receive push notifications, we need to make sure that the Mattermost Push Notification Service is able to send the notification to the device. This guide will focus on installing and configuring the push notification service.</p>
+<h6 id="requirements">Requirements&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#requirements"></i></a> </h6>
+<ul>
+<li>A linux box server with at least 1GB of memory.</li>
+<li>A copy of the <a href="https://github.com/mattermost/mattermost-push-proxy/releases">Mattermost Push Notification Service</a>.</li>
+<li><a href="../../../../contribute/mobile/build-your-own">Custom Android and/or iOS</a> Mattermost mobile apps.</li>
+<li>Private and public keys obtained from the <a href="https://developer.apple.com/account/ios/certificate/">Apple Developer Program</a>.</li>
+<li>A Firebase Cloud Messaging Server key obtained from the <a href="https://console.firebase.google.com">Firebase Console</a>.</li>
+</ul>
+<h6 id="installing-upgrading">Installing &amp; Upgrading&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#installing-upgrading"></i></a> </h6>
+<p>For the sake of making this guide simple we located the files at <code>/home/ubuntu/mattermost-push-proxy</code>. We&rsquo;ve also elected to run the Push Notification Service as the <code>ubuntu</code> account for simplicity. We <strong>recommend</strong> setting up
+and running the service under a <code>mattermost-push-proxy</code> user account with limited permissions.</p>
+<ol>
+<li>
+<p>Download the Mattermost Push Notification Service (any version):
+<code>wget https://github.com/mattermost/mattermost-push-proxy/releases/download/vX.X.X/mattermost-push-proxy-X.X.X.tar.gz</code></p>
+<p>in the previous command <code>vX.X.X</code> refers to the release version you want to download, see <a href="https://github.com/mattermost/mattermost-push-proxy/releases">Mattermost Push Notification Service releases</a>.</p>
+</li>
+<li>
+<p>If you are upgrading a previous version of the Mattermost Push Notification Service make sure to backup your <code>mattermost-push-proxy.json</code> file before continuing.</p>
+</li>
+<li>
+<p>Unzip the downloaded Mattermost Push Notification Service by typing:
+<code>tar -xvzf mattermost-push-proxy-X.X.X.tar.gz</code></p>
+</li>
+<li>
+<p>Configure the Mattermost Push Notification service by editing the <code>mattermost-push-proxy.json</code> file at <code>/home/ubuntu/mattermost-push-proxy/config</code>. Follow the steps in the <a href="#set-up-mattermost-push-notification-service-to-send-android-push-notifications">Android</a>
+and <a href="#set-up-mattermost-push-notification-service-to-send-ios-push-notifications">iOS</a> sections to replace the values in the config file.</p>
+</li>
+<li>
+<p>Create a systemd unit file to manage the Mattermost Push Notification Services with systemd and log all output of the service to <code>/var/log/syslog</code> by running this command as root.</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#366">echo</span> <span style="color:#c30">&#34;[Unit]
+</span><span style="color:#c30">Description=Mattermost Push Notification Service
+</span><span style="color:#c30">
+</span><span style="color:#c30">[Service]
+</span><span style="color:#c30">Type=oneshot
+</span><span style="color:#c30">ExecStart=/bin/sh -c &#39;/home/ubuntu/mattermost-push-proxy/bin/mattermost-push-proxy | logger&#39;
+</span><span style="color:#c30">WorkingDirectory=/home/ubuntu/mattermost-push-proxy
+</span><span style="color:#c30">
+</span><span style="color:#c30">[Install]
+</span><span style="color:#c30">WantedBy=multi-user.target&#34;</span> &gt;&gt; /etc/systemd/system/mattermost-push-proxy.service
+</code></pre></div><p>To route the traffic through a separate proxy server, add <code>Environment=&quot;HTTP_PROXY=&lt;http://server&gt;&quot;</code> under the <code>[Service]</code> section of the file. If you have an HTTPS server, then use <code>HTTPS_PROXY</code>. If you set both then <code>HTTPS_PROXY</code> will take higher priority than <code>HTTP_PROXY</code>.</p>
+</li>
+<li>
+<p>Start the service with <code>sudo systemctl start mattermost-push-proxy</code> or restart with <code>sudo systemctl restart mattermost-push-proxy</code>. Use <code>sudo systemctl enable mattermost-push-proxy</code> to have systemd start the service on boot.</p>
+</li>
+</ol>
+<h3 id="set-up-mattermost-push-notification-service-to-send-android-push-notifications">Set Up Mattermost Push Notification Service to Send Android Push Notifications&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#set-up-mattermost-push-notification-service-to-send-android-push-notifications"></i></a> </h3>
+<ul>
+<li>
+<p>Go to the <a href="https://console.firebase.google.com">Firebase Console</a> and select the project you&rsquo;ve created. Once in the dashboard, go to the project settings and select <strong>CLOUD MESSAGING</strong>.
+<img src="../../../../img/mobile/firebase_settings.png" alt="image">
+<img src="../../../../img/mobile/firebase_cloud_messaging.png" alt="image"></p>
+</li>
+<li>
+<p>Look for the value of the <strong>Server key</strong> and copy it.
+<img src="../../../../img/mobile/firebase_server_key.png" alt="image"></p>
+</li>
+<li>
+<p>Open the <strong>mattermost-push-proxy.json</strong> file in the <code>mattermost-push-proxy/config</code> directory and look for the  &ldquo;AndroidApiKey&rdquo; entry. Paste the <strong>Server key</strong> as its value.</p>
+<pre><code>&quot;AndroidApiKey&quot;: &quot;your Server key&quot;
+</code></pre></li>
+</ul>
+<h3 id="set-up-mattermost-push-notification-service-to-send-ios-push-notifications">Set up Mattermost Push Notification Service to Send iOS Push Notifications&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#set-up-mattermost-push-notification-service-to-send-ios-push-notifications"></i></a> </h3>
+<ul>
+<li>
+<p>Double click the <strong>Distribution Certificate</strong> generated while <a href="../../../../contribute/mobile/push-notifications/ios">Setup Push Notifications for iOS</a> to add it to your Keychain Access. Go to <strong>Keychain Access</strong>, select the <strong>login</strong> keychain and <strong>My Certificates</strong> from the side menu.
+<img src="../../../../img/mobile/ios_keychain_select.png" alt="image"></p>
+</li>
+<li>
+<p>Find the certificate you imported and then right click to <strong>export</strong> it as a <strong>.p12</strong> file
+<img src="../../../../img/mobile/ios_keychain_export.png" alt="image"></p>
+</li>
+<li>
+<p>Enter a name for the filename and click <strong>Save</strong>
+<img src="../../../../img/mobile/ios_keychain_export_save.png" alt="image"></p>
+</li>
+<li>
+<p>Leave the <strong>password</strong> blank and then click <strong>OK</strong>
+<img src="../../../../img/mobile/ios_keychain_export_password.png" alt="image"></p>
+</li>
+<li>
+<p>Convert the downloaded certificate to <strong>.pem</strong></p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#c30;font-weight:bold">\$</span> openssl x509 -in aps.cer -inform DER -out aps_production.pem
+</code></pre></div></li>
+<li>
+<p>Extract the private key from the certificate you exported ..</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#c30;font-weight:bold">\$</span> openssl pkcs12 -in Certificates.p12 -out aps_production_priv.pem -nodes -clcerts -passin pass:
+</code></pre></div></li>
+<li>
+<p>Verify the certificate works with apple</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#c30;font-weight:bold">\$</span> openssl s_client -connect gateway.push.apple.com:2195 -cert aps_production.pem -key aps_production_priv.pem
+</code></pre></div></li>
+<li>
+<p>Copy the private key file <code>aps_production_priv.pem</code> into your <code>mattermost-push-proxy/config</code> directory</p>
+</li>
+<li>
+<p>Open the <strong>mattermost-push-proxy.json</strong> file under the <code>mattermost-push-proxy/config</code> directory and add the path to the private key file as the value for <strong>&ldquo;ApplePushCertPrivate&rdquo;</strong> and the value for <strong>&ldquo;ApplePushTopic&rdquo;</strong> with your <em>Bundle Identifier</em></p>
+<p><img src="../../../../img/mobile/proxy-config.png" alt="image"></p>
+</li>
+</ul>
+<h3 id="configure-the-mattermost-server-to-use-the-mattermost-push-notification-service">Configure the Mattermost Server to use the Mattermost Push Notification Service&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#configure-the-mattermost-server-to-use-the-mattermost-push-notification-service"></i></a> </h3>
+<ul>
+<li>In your Mattermost instance, enable mobile push notifications.
+<ul>
+<li>Go to <strong>System Console &gt; Notifications &gt; Mobile Push</strong>.</li>
+<li>Under <strong>Send Push Notifications</strong>, select <strong>Manually enter Push Notification Service location</strong>.</li>
+<li>Enter the location of your Mattermost Push Notification Service in the <strong>Push Notification Server</strong> field.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../../img/mobile/manual_mpns.png" alt="image"></p>
+<ul>
+<li>(Optional) Customize mobile push notification contents.
+<ul>
+<li>Go to <strong>System Console &gt; Notifications &gt; Mobile Push</strong>.</li>
+<li>Select an option for <strong>Push Notification Contents</strong> to specify what type of information to include in the push notifications.</li>
+<li>Most deployments choose to include the full message snippet in push notifications unless they have policies against it to protect confidential information.</li>
+</ul>
+</li>
+</ul>
+<p><img src="../../../../img/mobile/push_contents.png" alt="image"></p>
+<ul>
+<li>Finally, start your Mattermost Push Notification Service, and your app should start receiving push notifications.</li>
+</ul>
+<h3 id="test-the-mattermost-push-notification-service">Test the Mattermost Push Notification Service&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#test-the-mattermost-push-notification-service"></i></a> </h3>
+<ul>
+<li>Verify that the server is functioning normally and test the push notification using curl:
+<code>curl http://127.0.0.1:8066/api/v1/send_push -X POST -H &quot;Content-Type: application/json&quot; -d '{&quot;type&quot;: &quot;message&quot;, &quot;message&quot;: &quot;test&quot;, &quot;badge&quot;: 1, &quot;platform&quot;: &quot;PLATFORM&quot;, &quot;server_id&quot;: &quot;MATTERMOST_DIAG_ID&quot;, &quot;device_id&quot;: &quot;DEVICE_ID&quot;, &quot;channel_id&quot;: &quot;CHANNEL_ID&quot;}'</code>
+<ul>
+<li>Replace <code>MATTERMOST_DIAG_ID</code> with the value found by running the SQL query:</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> <span style="color:#555">*</span> <span style="color:#069;font-weight:bold">FROM</span> Systems <span style="color:#069;font-weight:bold">WHERE</span> Name <span style="color:#555">=</span> <span style="color:#c30">&#39;DiagnosticId&#39;</span>;
+</code></pre></div><ul>
+<li>Replace <code>DEVICE_ID</code> with your device ID, which can be found using (where <code>your_email@example.com</code> is the email address of the user you are logged in as):</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span>
+   Email, DeviceId
+<span style="color:#069;font-weight:bold">FROM</span>
+   Sessions,
+   Users
+<span style="color:#069;font-weight:bold">WHERE</span>
+   Sessions.UserId <span style="color:#555">=</span> Users.Id
+      <span style="color:#069;font-weight:bold">AND</span> DeviceId <span style="color:#555">!=</span> <span style="color:#c30">&#39;&#39;</span>
+      <span style="color:#069;font-weight:bold">AND</span> Email <span style="color:#555">=</span> <span style="color:#c30">&#39;your_email@example.com&#39;</span>;
+</code></pre></div><ul>
+<li>Replace <code>CHANNEL_ID</code> with the Town Square channel ID, which can be found using:</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#069;font-weight:bold">SELECT</span> Id <span style="color:#069;font-weight:bold">FROM</span> Channels <span style="color:#069;font-weight:bold">WHERE</span> DisplayName <span style="color:#555">=</span> <span style="color:#c30">&#39;Town Square&#39;</span>;
+</code></pre></div><aside class="note">
+  <div class="note-content">
+      <strong>Migration</strong><br>
+      Remove the <code>apple:</code>, <code>apple_rn</code>, <code>android:</code> or <code>android_rn:</code> prefix from your device ID before replacing <code>DEVICE_ID</code>. Use that prefix as the <code>PLATFORM</code> (make sure to remove the &ldquo;:&quot;).
+  </div>
+</li>
+</ul>
+</aside>
+<ul>
+<li>You can also verify push notifications are working by opening your Mattermost site and mentioning a user who has push notifications enabled in <strong>Account Settings &gt; Notifications &gt; Mobile Push Notifications</strong>.</li>
+</ul>
+<p>To view the log file, use:</p>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo tail -n <span style="color:#f60">1000</span> /var/log/upstart/mattermost-push-proxy.log
+</code></pre></div><h3 id="troubleshooting">Troubleshooting&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#troubleshooting"></i></a> </h3>
+<h5 id="high-sierra-apple-developer-keys-steps---follow-these-instructions-if-you-run-into-an-error-like-below">High Sierra Apple Developer Keys Steps - follow these instructions if you run into an error like below:&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#high-sierra-apple-developer-keys-steps---follow-these-instructions-if-you-run-into-an-error-like-below"></i></a> </h5>
+<pre><code>2018/04/13 12:39:24 CRIT Failed to load the apple pem cert err=failed to parse PKCS1 private key for type=apple_rn
+panic: Failed to load the apple pem cert err=failed to parse PKCS1 private key for type=apple_rn
+</code></pre><ol>
+<li>Follow the directions at <a href="https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/DistributingEnterpriseProgramApps/DistributingEnterpriseProgramApps.html#//apple_ref/doc/uid/TP40012582-CH33-SW4">developer.apple.com</a> to generate an Apple Push Notification service SSL Certificate, this should give you an <code>aps_production.cer</code></li>
+<li>Convert the certificate format to .pem:</li>
+</ol>
+<ul>
+<li><code>openssl x509 -in aps.cer -inform DER -out aps_production.pem</code></li>
+</ul>
+<ol start="3">
+<li>Double click <code>aps_production.cer</code> to install it into the keychain tool</li>
+<li>Right click the private cert in keychain access and export to .p12</li>
+<li>Extract the private key from the certificate into an intermediate state:</li>
+</ol>
+<ul>
+<li><code>openssl pkcs12 -in Certificates.p12 -out intermediate.pem -nodes -clcerts</code></li>
+</ul>
+<ol start="6">
+<li>Generate an intermediate RSA private key</li>
+</ol>
+<ul>
+<li><code>openssl rsa -in intermediate.pem -out intermediate_rsa_priv.pem</code></li>
+</ul>
+<ol start="7">
+<li>Remove the private key information from intermediate.pem</li>
+</ol>
+<ul>
+<li><code>sed -i '/^-----BEGIN PRIVATE KEY-----$/,$d' intermediate.pem</code></li>
+</ul>
+<ol start="8">
+<li>Combine intermediate.pem and intermediate_rsa_priv.pem to create a valid bundle</li>
+</ol>
+<ul>
+<li><code>cat intermediate.pem intermediate_rsa_priv.pem &gt;&gt; aps_production_priv.pem &amp;&amp; rm intermediate.pem intermediate_rsa_priv.pem</code></li>
+</ul>
+<ol start="6">
+<li>Verifying the certificate works with apple:</li>
+</ol>
+<ul>
+<li><code>openssl s_client -connect gateway.push.apple.com:2195 -cert aps_production.pem -key aps_production_priv.pem</code></li>
+</ul>
+<h3 id="reporting-issues">Reporting issues&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#reporting-issues"></i></a> </h3>
+<p>For issues with repro steps, please report to <a href="https://github.com/mattermost/mattermost-server/issues">https://github.com/mattermost/mattermost-server/issues</a></p>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+    <div class="container-fluid">
+        <div class="footer__copyright">© Mattermost, Inc. All Rights Reserved.</div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/Mattermost-2300985916642531/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/mattermost"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCNR05H72hi692y01bWaFXNA"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

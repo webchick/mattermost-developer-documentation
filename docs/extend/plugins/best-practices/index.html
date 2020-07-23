@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html>
+    <head>
+        <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title> Best Practices</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">   
+<meta http-equiv="content-language" content="en-us" />
+
+
+
+<link rel="canonical" href="../../../extend/plugins/best-practices/">
+
+
+<link rel="shortcut icon" type="image/png" href="../../../img/favicon-32x32.png" />
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../css/tabs.css">
+<link rel="stylesheet" href="../../../css/bar.css">
+<link rel="stylesheet" href="../../../css/styles.css">
+<link rel="stylesheet" href="../../../css/code.css">
+<link rel="stylesheet" href="../../../css/note.css">
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../../../js/tabs.js"></script>
+<script src="../../../js/main.js"></script>
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script async src="//cdn.bizible.com/scripts/bizible.js"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-64458817-2"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-64458817-2');
+</script>
+
+
+<script type="text/javascript">
+    (function() {
+    var didInit = false;
+    function initMunchkin() {
+    if(didInit === false) {
+    didInit = true;
+    Munchkin.init('161-FBE-733');
+    }
+    }
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    s.src = '//munchkin.marketo.net/munchkin.js';
+    s.onreadystatechange = function() {
+    if (this.readyState == 'complete' || this.readyState == 'loaded') {
+    initMunchkin();
+    }
+    };
+    s.onload = initMunchkin;
+    document.getElementsByTagName('head')[0].appendChild(s);
+    })();
+</script>
+
+
+<script type="text/javascript" charset="utf-8">
+    var _eiq = _eiq || [];
+    var _engagio_settings = {
+      accountId: "cb6a404b72e9141b70d1f82abc04db92b4e56238"
+    };
+    (function() {
+      var ei = document.createElement('script'); ei.type = 'text/javascript'; ei.async = true;
+      ei.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'web-analytics.engagio.com/js/ei.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ei, s);
+    })();
+  </script>
+
+    </head>
+<body>
+    <header>
+    <a href="../../../"><img src="../../../img/logo.svg" alt="Mattermost Logo" width="212px"></a>
+    <div class="header__menu-toggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <ul class="header__links--right">
+        <li><a href="../../../">Home</a></li>
+        
+            
+            
+            
+                
+                    <li><a href="../../../contribute/getting-started">Contribute</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../integrate/getting-started">Integrate</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li class="active"><a href="../../../extend/getting-started">Extend</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="../../../blog">Blog</a></li>
+                
+            
+        
+            
+            
+            
+                
+                    <li><a href="https://docs.mattermost.com/">Admin Docs</a></li>
+                
+            
+        
+    </ul>
+</header>
+
+
+
+
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 sidebar">
+    <div class="sidebar__menu-toggle">
+        Best Practices
+        <i class="fa fa-bars pull-right"></i>
+    </div>
+    <div class="row sidebar__links">
+        
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../extend/getting-started/"> Getting Started</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../extend/customization/"> Customizing Mattermost</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/customization/server-build/"> Server Build (Team Edition)</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/customization/server-files/"> Server Files</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/customization/webapp/"> Web App</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+                    
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style=""></i>
+                    
+                        <a href="../../../extend/plugins/"> Plugins (Beta)</a>
+                    
+                </span>
+                <ul class="sub-menu" style="display: block">
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/overview/"> Overview</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../extend/plugins/server/"> Server Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../extend/plugins/server/hello-world/">Quick Start</a>
+                            
+                                <a class="item " href="../../../extend/plugins/server/reference/">Server Reference</a>
+                            
+                                <a class="item " href="../../../extend/plugins/server/ha/">High Availability</a>
+                            
+                                <a class="item " href="../../../extend/plugins/server/debugging/"></a>
+                            
+                                <a class="item active" href="../../../extend/plugins/server/best-practices/">Best Practices</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style=""></i>
+                            
+                                <a href="../../../extend/plugins/webapp/"> Web App Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                                <a class="item " href="../../../extend/plugins/webapp/hello-world/">Quick Start</a>
+                            
+                                <a class="item " href="../../../extend/plugins/webapp/reference/">Web App Reference</a>
+                            
+                                <a class="item " href="../../../extend/plugins/webapp/actions/">Redux Actions</a>
+                            
+                                <a class="item " href="../../../extend/plugins/webapp/best-practices/">Design Best Practices</a>
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/manifest-reference/"> Manifest Reference</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/mobile/"> Mobile Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/example-plugins/"> Example Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/migration/"> Migrating Plugins</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/community_process/"> Process to Include Plugin on Community</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/community-plugin-marketplace/"> Community Plugins in the Marketplace</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+                            
+                        
+
+                        
+                            
+                        
+
+                        <span class="item active">
+                            <i class="sub-menu__toggle fa fa-minus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a class="active" href="../../../extend/plugins/best-practices/"> Best Practices</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" style="display: block">
+                            
+                        </ul>
+                    
+                        
+                        
+
+                        
+                        
+
+                        
+                            
+                        
+
+                        <span class="item ">
+                            <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                            
+                                <a href="../../../extend/plugins/helpers/"> Plugin Helpers</a></span>
+                            
+                        </span>
+                        <ul class="sub-menu" >
+                            
+                        </ul>
+                    
+                </ul>
+            
+                
+                
+
+                
+                
+
+                
+                    
+                
+
+                <span class="item ">
+                    <i class="sub-menu__toggle fa fa-plus-square-o" aria-hidden="true" style="display: none"></i>
+                    
+                        <a href="../../../extend/embed/"> Embed</a>
+                    
+                </span>
+                <ul class="sub-menu" >
+                    
+                </ul>
+            
+        
+    </div>
+</div>
+
+                <div class="col-lg-9 doc-content">
+                    
+<a href="https://github.com/mattermost/mattermost-developer-documentation/edit/master/site/content/extend/plugins/best-practices.md" class="float-right edit-github">
+    Edit on GitHub
+</a>
+
+
+                    <h1 class="mt-0 doc-title">
+                        Best Practices
+                    </h1>
+                    <p>See here for <a href="../../../extend/plugins/server/best-practices/">server-specific best practices for plugins</a>. Webapp-specific best practices are incoming.</p>
+<h2 id="how-can-a-plugin-enable-its-configuration-through-the-system-console">How can a plugin enable its configuration through the System Console?&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#how-can-a-plugin-enable-its-configuration-through-the-system-console"></i></a> </h2>
+<p>Once a plugin is installed, Administrators have access to the plugin&rsquo;s configuration page in the <strong>System Console &gt; Plugins</strong> section. The configurable settings must first be defined in the plugin&rsquo;s manifest <a href="https://developers.mattermost.com/extend/plugins/manifest-reference/#settings_schema">setting schema</a>. The web app supports several basic pre-defined settings type, e.g. <code>bool</code> and <code>dropdown</code>, for which the corresponding UI components are provided in order to complete configuration in the System Console.</p>
+<p>These settings are stored within the server configuration under [<code>Plugins</code>] indexed by plugin ids. The plugin&rsquo;s server code can access their current configuration calling the <a href="https://developers.mattermost.com/extend/plugins/server/reference/#API.GetConfig"><code>getConfig</code></a> API call and can also make changes as needed with <a href="https://developers.mattermost.com/extend/plugins/server/reference/#API.SaveConfig"><code>saveConfig</code></a>.</p>
+<h2 id="how-can-a-plugin-define-its-own-setting-type">How can a plugin define its own setting type?&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#how-can-a-plugin-define-its-own-setting-type"></i></a> </h2>
+<p>A plugin could define its own type of setting with a corresponding custom user interface that will be displayed in the System Console following the process below.</p>
+<ol>
+<li>Define a <code>type: custom</code> setting in the plugins manifest <code>settings_schema</code></li>
+</ol>
+<div class="highlight"><pre style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-diff" data-lang="diff">&#34;settings_schema&#34;: {
+    &#34;settings&#34;: [{
+        &#34;key&#34;: &#34;NormalSetting&#34;,
+        &#34;type&#34;: &#34;text&#34;,
+<span style="background-color:#cfc">+    }, {
+</span><span style="background-color:#cfc">+        &#34;key&#34;: &#34;CustomSetting&#34;,
+</span><span style="background-color:#cfc">+        &#34;type&#34;: &#34;custom&#34;
+</span><span style="background-color:#cfc"></span>    }]
+}
+</code></pre></div><ol start="2">
+<li>
+<p>In the plugin&rsquo;s web app code, define a custom component to manage the plugin&rsquo;s custom setting and register it in the web app with <a href="https://developers.mattermost.com/extend/plugins/webapp/reference/#registerAdminConsoleCustomSetting"><code>registerAdminConsoleCustomSetting</code></a>. This component will be instantiated in the System Console with the following <code>props</code> passed in:</p>
+<ul>
+<li><code>id</code>: The setting <code>key</code> as defined in the plugin manifest within <code>settings_schema.settings</code>.</li>
+<li><code>label</code>: The text for the component label based on the setting&rsquo;s <code>displayName</code> defined in the manifest.</li>
+<li><code>helpText</code>: The help text based on the setting&rsquo;s <code>helpText</code> defined in the manifest.</li>
+<li><code>value</code>: The setting&rsquo;s current json value in the config at the time the component is loaded.</li>
+<li><code>disabled</code>: Boolean indicating if the setting is disabled by a parent component within the System Console.</li>
+<li><code>config</code>: The server configuration loaded by the web app.</li>
+<li><code>license</code>: The license information for the related Mattermost server.</li>
+<li><code>setByEnv</code>: Boolean that indicates if the setting is based on a server environment variable.</li>
+<li><code>onChange</code>: Function that receives the setting id and current json value of the setting when it has been changed within the custom component.</li>
+<li><code>setSaveNeeded</code>: Function that will prompt the System Console to enable the Save button in the plugin settings screen.</li>
+<li><code>registerSaveAction</code>: Registers the given function to be executed when the setting is saved. This is registered when the custom component is mounted.</li>
+<li><code>unRegisterSaveAction</code>: On unmount of the custom component, unRegisterSaveAction will remove the registered function executed on save of the custom component.</li>
+</ul>
+</li>
+<li>
+<p>On initialization of the custom component, the current value of the custom setting is passed in the <code>props.value</code> in a json format as read from the config. This value can be processed as necessary to display in your custom UI and ready to be modified by the end user. In the example below, it processes the initial <code>props.value</code> and sets it in a local state for the component to use as needed:</p>
+</li>
+</ol>
+<pre><code>constructor(props) {
+        super(props);
+
+        this.state = {
+            attributes: this.initAttributes(props.value),
+        }
+    }
+</code></pre><ol start="4">
+<li>When a user makes a change in the UI, the <code>OnChange</code> handler sends back the current value of the setting as a json. Additionally, <code>setSaveNeeded</code> should be called to enable the <code>Save</code> button in order for the changes to be saved.</li>
+</ol>
+<pre><code>handleChange = () =&gt; {
+    ...
+
+    this.props.onChange(this.props.id,  Array.from(this.state.attributes.values()));
+    this.props.setSaveNeeded()
+};
+</code></pre><ol start="5">
+<li>Once the user saves the changes, any handler that was registered with <code>registerSaveAction</code> will be executed to perform any additional custom actions the plugin may require, such as calling an additional endpoint within the plugin.</li>
+</ol>
+<p>For examples of custom settings see: Demo Plugin <a href="https://github.com/mattermost/mattermost-plugin-demo/blob/master/webapp/src/components/admin_settings/custom_setting.jsx"><code>CustomSetting</code></a> and Custom Attributes Plugin <a href="https://github.com/mattermost/mattermost-plugin-custom-attributes/pull/18">implementation</a>.</p>
+<h2 id="how-can-i-review-the-entire-code-base-of-a-plugin">How can I review the entire code base of a plugin?&nbsp;<a class="hanchor fa fa-link" ariaLabel="Anchor" href="#how-can-i-review-the-entire-code-base-of-a-plugin"></i></a> </h2>
+<p>Carry out the following steps:</p>
+<ol>
+<li>
+<p>Take a backup of project directory</p>
+</li>
+<li>
+<p>Create a dummy-master branch with no code:</p>
+<pre><code>git checkout --orphan dummy-master
+git rm -rf
+git push origin dummy-master
+</code></pre></li>
+<li>
+<p>Create a dummy-review branch from dummy-master:</p>
+<pre><code>git checkout -b dummy-review
+git add
+git commit -m &quot;Full checkin&quot;
+git push origin dummy-review
+</code></pre></li>
+<li>
+<p>Create a PR from dummy-review -&gt; dummy-master</p>
+</li>
+<li>
+<p>Code review on the resulting PR</p>
+</li>
+</ol>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center">
+    <div class="container-fluid">
+        <div class="footer__copyright">© Mattermost, Inc. All Rights Reserved.</div>
+        <div class="footer__icons">
+            <a href="https://www.facebook.com/Mattermost-2300985916642531/"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/mattermost"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.youtube.com/channel/UCNR05H72hi692y01bWaFXNA"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
