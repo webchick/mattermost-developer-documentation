@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Build Your Own App on Mattermost Developers</title>
+    <link>/contribute/mobile/build-your-own/</link>
+    <description>Recent content in Build Your Own App on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 May 2018 11:35:32 -0400</lastBuildDate>
+    
+	<atom:link href="/contribute/mobile/build-your-own/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Build Preparations</title>
+      <link>/contribute/mobile/build-your-own/preparation/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/build-your-own/preparation/</guid>
+      <description>First of all, ensure that the following remains exactly the same as in the original mattermost-mobile repo:
+ The package ID for the Android app and the Bundle Identifier for the iOS app remain the same as the one in the original mattermost-mobile repo com.mattermost.rnbeta. Android-specific source files remain under android/app/src/main/java/com/mattermost/rnbeta. Your environment variables are set according to your needs.  Install Xcode command line tools: $ xcode-select --install Install Fastlane Fastlane is the easiest way to automate beta deployments and releases for your iOS and Android apps.</description>
+    </item>
+    
+    <item>
+      <title>Environment Variables</title>
+      <link>/contribute/mobile/build-your-own/environment-vars/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/build-your-own/environment-vars/</guid>
+      <description>In order to use the make build, make build-android and/or make build-ios commands, you&amp;rsquo;ll need to set a few environment variables. In order to make fastlane work with these environment variables you have two options:
+ Copy the file with your variables to ./mattermost-mobile/fastlane/.env where .env is the file name (additionally, a sample file env_vars_example can be found in ./mattermost-mobile/fastlane/).  or
+ Create an .sh file with your variables (for example my_env.</description>
+    </item>
+    
+    <item>
+      <title>Assets &amp; White Labeling</title>
+      <link>/contribute/mobile/build-your-own/assets-white-label/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/build-your-own/assets-white-label/</guid>
+      <description>We&amp;rsquo;ve made it easy to white label the mobile app and to replace and override the assets used, however, you have to Build Your Own App from Source.
+If you look at the Project Directory Structure, you&amp;rsquo;ll see that there is an assets folder containing a base folder with assets provided by Mattermost. These include localization files, images and a release folder that optionally contains the icons and the splash screen of the app when building in release mode.</description>
+    </item>
+    
+    <item>
+      <title>Build the Android App</title>
+      <link>/contribute/mobile/build-your-own/android/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/build-your-own/android/</guid>
+      <description>To distribute your Android application via the Google Play Store, you&amp;rsquo;ll need to generate a signed release APK as Android requires all apps to be digitally signed with a certificate before they can be installed.
+Generating a Signing Key To generate the signed key, use keytool which comes with the JDK required to develop the Android app.
+$ keytool -genkey -v -keystore my-release-key.keystore -alias my-key-alias -keyalg RSA -keysize 2048 -validity 10000 The above command prompts you for passwords for the keystore and key (make sure you use the same password for both), and asks you to provide the Distinguished Name fields for your key.</description>
+    </item>
+    
+    <item>
+      <title>Build the iOS App</title>
+      <link>/contribute/mobile/build-your-own/ios/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/build-your-own/ios/</guid>
+      <description>Apple requires all apps to be digitally signed with a certificate before they can be installed, so to distribute your iOS application via Apple App Store, you&amp;rsquo;ll need to generate a signed release IPA. The process is the same as any other native iOS app, but in our case we&amp;rsquo;ve created a set of scripts in conjunction with Fastlane to make this process easier than the standard manual process.
+We make use of Match to sync your provisioning profiles (the profiles will be created for you if needed), then use Gym to build and sign the app, and then optionally use Pilot to submit the app to TestFlight in order for you to promote the app to the App Store.</description>
+    </item>
+    
+  </channel>
+</rss>

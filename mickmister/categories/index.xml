@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Mattermost Developers</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 20 May 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Go</title>
+      <link>/categories/go/</link>
+      <pubDate>Wed, 20 May 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>/categories/git/</link>
+      <pubDate>Fri, 27 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>markdown</title>
+      <link>/categories/markdown/</link>
+      <pubDate>Thu, 26 Mar 2020 12:00:00 -0500</pubDate>
+      
+      <guid>/categories/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>“linting”</title>
+      <link>/categories/linting/</link>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/linting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>announcements</title>
+      <link>/categories/announcements/</link>
+      <pubDate>Fri, 20 Dec 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/categories/announcements/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>/categories/kubernetes/</link>
+      <pubDate>Wed, 18 Dec 2019 12:00:00 -0400</pubDate>
+      
+      <guid>/categories/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>plugins</title>
+      <link>/categories/plugins/</link>
+      <pubDate>Wed, 11 Dec 2019 10:49:35 +0200</pubDate>
+      
+      <guid>/categories/plugins/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>/categories/testing/</link>
+      <pubDate>Sun, 29 Sep 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/categories/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>contributing</title>
+      <link>/categories/contributing/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/categories/contributing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>announcement</title>
+      <link>/categories/announcement/</link>
+      <pubDate>Wed, 18 Jul 2018 15:35:09 -0400</pubDate>
+      
+      <guid>/categories/announcement/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

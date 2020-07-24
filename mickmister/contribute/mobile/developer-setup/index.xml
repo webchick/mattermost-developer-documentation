@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Developer Setup on Mattermost Developers</title>
+    <link>/contribute/mobile/developer-setup/</link>
+    <description>Recent content in Developer Setup on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Aug 2017 11:35:32 -0400</lastBuildDate>
+    
+	<atom:link href="/contribute/mobile/developer-setup/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mobile Apps Workflow</title>
+      <link>/contribute/mobile/developer-setup/developer-workflow/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/developer-setup/developer-workflow/</guid>
+      <description>Running and Building the Apps Use the Makefile commands to run and build the apps. See these instructions for developing on a real device.
+Adding New Dependencies to the Project If you need to add a new dependency to the project, it is important to add them in the right way. Instructions for adding different types of dependencies are described below.
+JavaScript Only If you need to add a new JavaScript dependency that is not related to React Native, use npm, not yarn.</description>
+    </item>
+    
+    <item>
+      <title>Makefile Commands</title>
+      <link>/contribute/mobile/developer-setup/makefile/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/developer-setup/makefile/</guid>
+      <description>We&amp;rsquo;ve included a bunch of make commands in order to control the development flow and to ensure that everything works as expected. Always try and use these make commands unless they can&amp;rsquo;t accomplish what you need to do.
+Every make command has to be run from a terminal in the project&amp;rsquo;s root directory. Try running make help to get a short description in your terminal about every make command available.</description>
+    </item>
+    
+    <item>
+      <title>Run on a Device</title>
+      <link>/contribute/mobile/developer-setup/run-on-device/</link>
+      <pubDate>Sun, 20 May 2018 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/developer-setup/run-on-device/</guid>
+      <description>If you want to test the app or if you want to make a contribution it is always a good idea to run the app on an actual device. This will let you ensure that the app is working correctly and in a performant way before making a pull request.
+Running on Android Devices Enable Debugging over USB Most Android devices can only install and run apps downloaded from Google Play.</description>
+    </item>
+    
+    <item>
+      <title>Troubleshooting</title>
+      <link>/contribute/mobile/developer-setup/troubleshooting/</link>
+      <pubDate>Sun, 20 Aug 2017 11:35:32 -0400</pubDate>
+      
+      <guid>/contribute/mobile/developer-setup/troubleshooting/</guid>
+      <description>Errors When Running &amp;lsquo;make run-android&amp;rsquo; Error message React-native-vector-icons: cannot find dependencies Solution Make sure the Extras &amp;gt; Android Support Repository package is installed with the Android SDK.
+Error message Execution failed for task &amp;#39;:app:packageAllDebugClassesForMultiDex&amp;#39;. &amp;gt; java.util.zip.ZipException: duplicate entry: android/support/v7/appcompat/R$anim.class Solution Clean the Android part of the mattermost-mobile project. Issue the following commands:
+ cd android ./gradlew clean  Error message Execution failed for task &amp;#39;:app:installDebug&amp;#39;. &amp;gt; com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException: Failed to finalize session : INSTALL_FAILED_UPDATE_INCOMPATIBLE: Package com.</description>
+    </item>
+    
+  </channel>
+</rss>

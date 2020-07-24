@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Plugins on Mattermost Developers</title>
+    <link>/contribute/plugins/</link>
+    <description>Recent content in Plugins on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Mar 2018 12:01:23 -0400</lastBuildDate>
+    
+	<atom:link href="/contribute/plugins/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Developer Setup</title>
+      <link>/contribute/plugins/developer-setup/</link>
+      <pubDate>Mon, 19 Mar 2018 12:01:23 -0400</pubDate>
+      
+      <guid>/contribute/plugins/developer-setup/</guid>
+      <description>Please see the plugin developer setup and developer workflow pages for information on the plugin development environment.</description>
+    </item>
+    
+  </channel>
+</rss>

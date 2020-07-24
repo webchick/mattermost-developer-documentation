@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Internal on Mattermost Developers</title>
+    <link>/internal/</link>
+    <description>Recent content in Internal on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 06 Nov 2017 19:30:07 -0500</lastBuildDate>
+    
+	<atom:link href="/internal/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Offboarding</title>
+      <link>/internal/offboarding/</link>
+      <pubDate>Mon, 19 Mar 2018 14:59:29 -0500</pubDate>
+      
+      <guid>/internal/offboarding/</guid>
+      <description>When an employee leaves the company, any credentials they had should be revoked. The more things they had access to, the harder this is, so when onboarding, it&amp;rsquo;s important to give them only the necessary privileges. It&amp;rsquo;s also important to avoid shared secrets that cannot be revoked from one person.
+The following is a list of things to do. It should be kept as complete and up-to-date as possible, but treated as non-comprehensive when offboarding someone.</description>
+    </item>
+    
+    <item>
+      <title>Release Tagging Process</title>
+      <link>/internal/release-tagging-process/</link>
+      <pubDate>Thu, 23 May 2019 16:02:00 -0500</pubDate>
+      
+      <guid>/internal/release-tagging-process/</guid>
+      <description>Head to the Github releases page. Copy the description of the previous release to your clipboard then click on the Draft a new release button. On the new release page:  Paste the copied description into the description text area. Set the tag version to vX.Y.Z where X.Y.Z is the release version (i.e., v1.19.0 or v1.19.1). Click on the Target:master button and select the appropriate release branch (i.e., release-1.19 for v1.</description>
+    </item>
+    
+    <item>
+      <title>Release Cutting Process</title>
+      <link>/internal/release-process/</link>
+      <pubDate>Tue, 07 Nov 2017 14:28:35 -0500</pubDate>
+      
+      <guid>/internal/release-process/</guid>
+      <description>Note: To cut a build you need access to matterbuild. Please ask Christopher/Jason/Elisabeth for access if you don&amp;rsquo;t have it.
+Developers and PMs decide when to create the release branch. The branch can be created from master or from an existing release branch, depending on which type of release we are planning. If it is a Quality Release, the new branch should be branched off the previous release, otherwise the branch should be off the master branch.</description>
+    </item>
+    
+    <item>
+      <title>Plugin Release Process</title>
+      <link>/internal/plugin-release-process/</link>
+      <pubDate>Tue, 07 Nov 2017 14:28:35 -0500</pubDate>
+      
+      <guid>/internal/plugin-release-process/</guid>
+      <description>This document outlines the steps required to release a new version of a Mattermost plugin.
+Update version Update plugin.json with the new version:
+{ &amp;#34;id&amp;#34;: &amp;#34;github&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;GitHub&amp;#34;, &amp;#34;description&amp;#34;: &amp;#34;GitHub plugin for Mattermost.&amp;#34;, &amp;#34;homepage_url&amp;#34;: &amp;#34;https://github.com/mattermost/mattermost-plugin-github&amp;#34;, &amp;#34;support_url&amp;#34;: &amp;#34;https://github.com/mattermost/mattermost-plugin-github/issues&amp;#34;, &amp;#34;icon_path&amp;#34;: &amp;#34;assets/icon.svg&amp;#34;, - &amp;#34;version&amp;#34;: &amp;#34;0.12.0&amp;#34;, + &amp;#34;version&amp;#34;: &amp;#34;0.13.0&amp;#34;,  &amp;#34;min_server_version&amp;#34;: &amp;#34;5.12.0&amp;#34;, ... } Apply the updated manifest into the server and webapp:
+make apply Submit a pull request referencing the updated plugin.json, server/manifest.go and webapp/src/manifest.</description>
+    </item>
+    
+    <item>
+      <title>Tips and Best Practices</title>
+      <link>/internal/tips-and-best-practices/</link>
+      <pubDate>Tue, 07 Nov 2017 14:28:35 -0500</pubDate>
+      
+      <guid>/internal/tips-and-best-practices/</guid>
+      <description>Engaging with Community Mattermost takes pride in working with the community and we encourage each Mattermost developer to find one or more community members to work with. Here is a basic three-step process for engaging with the community:
+ Welcoming - Be welcoming and warm to new members. Go out of your way to say hello, offer them help and overall make them feel like part of the Mattermost tribe. Shepherding - Find pull requests members are struggling with.</description>
+    </item>
+    
+    <item>
+      <title>Writing a Blog Post</title>
+      <link>/internal/writing-a-blog-post/</link>
+      <pubDate>Wed, 06 Feb 2019 14:28:35 -0500</pubDate>
+      
+      <guid>/internal/writing-a-blog-post/</guid>
+      <description>Been to a conference recently? Worked on something cool? Got something else Mattermost-related you want to post about? Writing a blog post is a great way to share your experience with the community.
+Blog posts can cover a wide range of topics, such as:
+ Addressing a customer-facing problem Describing an experience with Mattermost/your Mattermost implementation Sharing information about cool tech Sharing feedback on an interesting talk or conference Part of a Hackathon project A Help Wanted ticket A knowledge-share and call for feedback/community engagement A discussion of a specific problem or improvement that you worked on A breakdown of a new process or technology you’re using  Once you&amp;rsquo;ve got the topic in mind - what it&amp;rsquo;s about, what you want to achieve with the post, and what the next steps are - it’s sometimes helpful to start writing the conclusion and expand to your jumping off point to introduce your topic/idea/discovery draws.</description>
+    </item>
+    
+    <item>
+      <title>R&amp;D Teams</title>
+      <link>/internal/rd-teams/</link>
+      <pubDate>Wed, 06 Feb 2019 14:28:35 -0500</pubDate>
+      
+      <guid>/internal/rd-teams/</guid>
+      <description>Leadership  Corey Hulen - CTO Chris Overton - VP Engineering Lindsay Brock - Head of Product  Mobile Team  Elias Nahum - Eng Lead Miguel Alatzar - Engineer Amit Uttam - Engineer Eric Sethna - PM Matt Birtch - UX Designer  Apps Team  Dean Whillier - Eng Lead Harrison Healey - Engineer Sudheer Timmaraju - Engineer Devin Binnie - Engineer Guillermo Vayá - Engineer Nevy Angelova - Engineer Caleb Roseland - Engineer Eric Sethna - PM (Driving NPS) Adam Clarkson - PM (Driving Early Retention) Andrew Brown - UX Designer  Cloud Team  Joram Wilander - Eng Lead Carlos Panato - SRE Gabe Jackson - Engineer Stylianos Rigas - SRE Ian Whitlock - Engineer Gabriel Sagula - Engineer Angelos Kyratzakos - SRE Katie Wiersgalla - PM (Cloud) Eric Sadur - PM (Self-serve) Matt Birtch - UX Designer Justine Geffen - Technical Writer  Build &amp;amp; Infrastructure Team  Jason Deland - Engineer Lead Elisabeth Kulzer - Build Engineer  Integrations Team  Lev Brouk - Eng Lead Jason Frerich - Engineer Michael Kochell - Engineer Shota Gvinepadze - Engineer Ben Schumacher - Engineer Daniel Espino Garcia - Engineer Aaron Rothschild - PM Dylan Haussermann - QA Asaad Mahmood - UX Designer  Platform Team  George Goldberg - Eng Lead Jesus Espino - Engineer Miguel de la Cruz - Engineer Eli Yukelzon - Engineer Claudio Costa - Engineer Agniva De Sarker - Engineer Mario de Frutos - Engineer Doug Lauder - Engineer Ibrahim Acikgoz - Engineer Katie Wiersgalla - PM Lindy Isherwood - QA Justine Geffen - Technical Writer  Security Team  Daniel Schalla - Eng Lead Juho Nurminen - Product Sec.</description>
+    </item>
+    
+    <item>
+      <title>Sustained Engineering Team</title>
+      <link>/internal/sustained-engineering/</link>
+      <pubDate>Wed, 06 Feb 2019 14:28:35 -0500</pubDate>
+      
+      <guid>/internal/sustained-engineering/</guid>
+      <description>The Sustained Engineering Team (SET) is responsible for improving and maintaining quality.
+Team Members SET is a rotating team that is comprised of engineers from the different feature teams. The rotation is on a two week cycle. Who is currently on SET can be seen in the header of the ~Sustained Engineering channel.
+Feature teams will commit a total of 4 engineers plus a lead to SET for each rotation. While on SET, that engineer should attend their feature team&amp;rsquo;s sprint planning but should not be assigned any work from their feature team.</description>
+    </item>
+    
+  </channel>
+</rss>

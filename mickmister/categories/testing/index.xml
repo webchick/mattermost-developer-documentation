@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>testing on Mattermost Developers</title>
+    <link>/categories/testing/</link>
+    <description>Recent content in testing on Mattermost Developers</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Sep 2019 00:00:00 -0400</lastBuildDate>
+    
+	<atom:link href="/categories/testing/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Avoiding Flaky Tests</title>
+      <link>/blog/avoiding-flaky-tests/</link>
+      <pubDate>Sun, 29 Sep 2019 00:00:00 -0400</pubDate>
+      
+      <guid>/blog/avoiding-flaky-tests/</guid>
+      <description>&amp;ldquo;Your tests are failing.&amp;rdquo;
+ This comment on a pull request is crushing. After all the effort you&amp;rsquo;ve spent writing your code, adding new unit tests, and rebasing your changes to make each commit almost a work of art: how could your tests possibly be failing?
+Begrudgingly, you sign into your CI server only to realize the failing tests have nothing to do with your code. You think, &amp;ldquo;Hmm, maybe the code is more coupled than I expected.</description>
+    </item>
+    
+  </channel>
+</rss>
